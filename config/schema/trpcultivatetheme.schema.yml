@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Tripal Cultivate Base Theme theme.
+trpcultivatetheme.settings:
+  type: theme_settings
+  label: 'Tripal Cultivate Base Theme settings'
+  mapping:
+    example:
+      type: string
+      label: Example
