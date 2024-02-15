@@ -1,0 +1,25 @@
+
+/**
+ * Change the Olivero theme to be Fluid Width.
+ *
+ * Removes the drupal-drop patterned section that appears at the right edge
+ * of the 2024Feb Olivero theme when you expand the window beyond the max-width
+ * that olivero supports.
+ *
+ * Also adds a channel on the right side of the page in order to equalize
+ * the padding on both sides of the page.
+ */
+:root {
+  --max-width: 100%;
+}
+#page-wrapper.page-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+#page-wrapper .main-content__container {
+  max-width: 100%;
+  padding-right: calc(var(--sp2) + var(--content-left));
+}
+.site-header__inner {
+  padding-right: var(--content-left);
+}
