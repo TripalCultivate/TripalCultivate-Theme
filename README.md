@@ -1,6 +1,10 @@
 # Tripal Cultivate Base Theme
 
+<img src="https://github.com/TripalCultivate/TripalCultivate-Theme/assets/1566301/8f58c97b-9a81-4790-9e01-960c228ee704" width="480" height="360" align="right">
+
 This theme is intended to provide a base for developing custom themes for project-specific or research group specific Tripal sites using the Tripal Cultivate package of modules. We request that you do not use this theme untouched but rather as a base to develop a custom look for your project or group. At a minimum you need to choose a unique colour for your site, a logo and a header image.
+
+<br clear="right"/>
 
 ## Development
 
@@ -12,7 +16,7 @@ As you may have noticed there is a dockerfile in this repository. The recommende
 git clone https://github.com/TripalCultivate/TripalCultivate-Theme trpcultivatetheme
 cd trpcultivatetheme
 docker build --build-arg drupalversion=10.2.x-dev --build-arg phpversion=8.3 --tag=trpcultivate-theme:4x ./
-docker run --publish=80:80 -tid --name=theme4x --volume=/Users/laceysanderson/Dockers/TripalCultivate-Theme:/var/www/drupal/web/themes/trpcultivatetheme trpcultivate-theme:4x
+docker run --publish=80:80 -tid --name=theme4x --volume=`pwd`:/var/www/drupal/web/themes/trpcultivatetheme trpcultivate-theme:4x
 docker exec theme4x service postgresql restart
 ```
 
