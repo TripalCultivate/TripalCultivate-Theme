@@ -1,0 +1,23 @@
+.tripal_entity .table-header {
+  font-weight: bold;
+}
+.tripal_entity table {
+  border-spacing: 0;
+  font-size: 0.857em;
+  border-collapse: collapse;
+  width: 80%;
+  margin-bottom: var(--sp2);
+}
+.tripal_entity th {
+  text-align: left;
+  background-color: var(--color--primary-50);
+  color: whitesmoke;
+  border-bottom: 1px solid var(--color--primary-40);
+  width: 200px;
+  width: calc(var(--sp10) * 2);
+  padding: 2px 15px;
+}
+.tripal_entity td {
+  border-bottom: 1px solid whitesmoke;
+  padding: 2px 30px;
+}
