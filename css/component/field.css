@@ -2,4 +2,5 @@
 .field--type-entity-reference > .field__item, .field--type-entity-reference > .field__items > .field__item {
   background-color: #F6F8F8;
   padding: var(--sp2);
+  margin-bottom:  var(--sp2);
 }
