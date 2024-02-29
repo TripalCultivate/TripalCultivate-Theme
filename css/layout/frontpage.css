@@ -1,0 +1,9 @@
+.main-content__container {
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-bottom: 100px;
+  padding: 100px 100px;
+}
+.main-content__container ul {
+  list-style: square outside none;
+}

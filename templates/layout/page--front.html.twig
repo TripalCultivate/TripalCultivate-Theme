@@ -46,6 +46,9 @@
  */
 #}
 
+<-- Specifically add frontpage.css to this page. -->
+{{ attach_library('trpcultivatetheme/frontpage') }}
+
 <div id="page-wrapper" class="page-wrapper">
   <div id="page" class="front-page">
 
@@ -98,9 +101,8 @@
             {{ page.highlighted }}
 
             <!-- Current Tripal cultivate information as a placeholder until we get the frontpage in place. -->
-            <div style="font-size:1.5em; line-height: 2em; margin-bottom: 100px; padding: 100px 100px;">
             <p>Tripal Cultivate is a collection of Tripal extension packages focused on providing intuitive data management support for breeding and pre-breeding activities to help you to</p>
-            <ul style="list-style: square outside none;">
+            <ul>
               <li>Diversify your crossing block with intuitive germplasm search form integrating passport, phenotypic and genotypic data.</li>
               <li>Streamline project management and easily incorporate pre-breeding data into your breeding workflow with a shared platform.</li>
               <ul>
@@ -111,7 +113,6 @@
               <li>Customize your site by introducing tech savvy staff to built-in administrative interfaces and a vast collection of pluggable themes (i.e. change styles) and modules (i.e. add functionality) provided by Drupal and Tripal international communities.</li>
               <li>Integrate new visualization and data analysis tools with less developer-time due to our extensive APIs and modular, open-source framework.</li>
             </ul>
-            </div>
 
 
           </div>
