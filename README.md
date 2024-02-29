@@ -30,6 +30,10 @@ docker exec theme4x service postgresql restart
 
 This docker image/container will have a fully functioning Tripal 4 site based on TripalDocker built using the specified version of Drupal and PHP. [For more details about TripalDocker see the official docs](https://tripaldoc.readthedocs.io/en/latest/install/docker.html#usage).
 
+#### Twig Debugging
+
+The dockerfile sets up the development environment with twig debugging turned on. This adds template suggestions in HTML comments into each page and **refreshes twig template caches as it detects changes in the files**. You do still need to use `drush cr` to see CSS and template changes but it is much more reliable with this setting in place.
+
 ### Olivero as a Base Theme
 
 This theme uses the core Olivero theme as a base theme. As of 2024Feb this is not technically recommended as the markup of Olivero is not fixed. You can see the current status / recommendation on using Oliverio as a subtheme in [Drupal Issue #3190946 - [META] Subtheming Olivero](https://www.drupal.org/project/drupal/issues/3190946).
