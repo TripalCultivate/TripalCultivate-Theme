@@ -6,11 +6,19 @@ This theme is intended to provide a base for developing custom themes for projec
 
 <br clear="right"/>
 
+## Customizing this theme
+
+You can set the primary base colour using the following drush command where you substitute `#f54278` for whatever hex code you would like to use.
+
+```
+drush config:set trpcultivatetheme.settings base_primary_color '#f54278'
+```
+
 ## Development
 
 ### Docker
 
-As you may have noticed there is a dockerfile in this repository. The recommended way to contribute to this theme is the same as the recommendation for core development: use docker please :-) 
+As you may have noticed there is a dockerfile in this repository. The recommended way to contribute to this theme is the same as the recommendation for core development: use docker please :-)
 
 ```bash
 git clone https://github.com/TripalCultivate/TripalCultivate-Theme trpcultivatetheme
@@ -24,6 +32,6 @@ This docker image/container will have a fully functioning Tripal 4 site based on
 
 ### Olivero as a Base Theme
 
-This theme uses the core Olivero theme as a base theme. As of 2024Feb this is not technically recommended as the markup of Olivero is not fixed. You can see the current status / recommendation on using Oliverio as a subtheme in [Drupal Issue #3190946 - [META] Subtheming Olivero](https://www.drupal.org/project/drupal/issues/3190946). 
+This theme uses the core Olivero theme as a base theme. As of 2024Feb this is not technically recommended as the markup of Olivero is not fixed. You can see the current status / recommendation on using Oliverio as a subtheme in [Drupal Issue #3190946 - [META] Subtheming Olivero](https://www.drupal.org/project/drupal/issues/3190946).
 
 As you can see in [comment #19 of that issue](https://www.drupal.org/project/drupal/issues/3190946#comment-15443899), we've decided to use Olivero as a base theme despite the recommendation not to. This is because we believe that the effort to update this theme with any markup changes in Olivero is likely less work then the other options we considered. If we had copied Oliverio and renamed it for our own purposes as suggested, then it would have been a lot of work to re-incorporate any updates/fixes made to Olivero in core. This is because with the names of all the files changed, we could not do a direct comparison of files or git merge. The theme landscape at the beginning of 2024 is still very sparse for good Drupal themes so we couldn't just use a more stable theme as a base. There are a number of Bootstrap base themes available but the community has fractured quite a bit causing it to be confusing to know which one to use for long term sustainability. Furthermore, we did not like the base themeing provided by these base themes.
