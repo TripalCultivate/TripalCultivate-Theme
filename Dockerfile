@@ -3,14 +3,16 @@ ARG phpversion='8.3'
 FROM tripalproject/tripaldocker:drupal${drupalversion}-php${phpversion}-pgsql13-noChado
 
 ARG chadoschema='testchado'
+
+## Setup this container to show theme debugging settings
+## such as the template suggestions in the html
+## and rebuilding the theme cache everytime changes are detected.
+WORKDIR /var/www/drupal/web/sites/default/
+RUN cp default.services.yml services.yml \
+  && sed -i '82s/debug: false/debug: true/' services.yml
+
+## Change our working directory to the new theme
 COPY . /var/www/drupal/web/themes/trpcultivatetheme
-
-## This theme uses nodejs and yarn to manage css compilation
-## As such we install that here.
-## RUN apt-get update \
-##   && apt-get install -q -y nodejs npm \
-##   && npm install -g yarn
-
 WORKDIR /var/www/drupal/web/themes/trpcultivatetheme
 
 ## Complete Tripal installation and enable the theme.
