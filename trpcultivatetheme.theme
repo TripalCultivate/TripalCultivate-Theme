@@ -10,6 +10,13 @@
  */
 function trpcultivatetheme_preprocess_html(array &$variables): void {
 
+  // Ensure the colour-related CSS variables get set.
+  // Convert custom hex to hsl so we can use the hue value
+  $brand_color_hex = theme_get_setting('base_primary_color') ?? '#3C8700';
+  [$h, $s, $l] = _olivero_hex_to_hsl($brand_color_hex);
+
+  $variables['html_attributes']->setAttribute('style', "--color--primary-hue:$h;--color--primary-saturation:$s%;--color--primary-lightness:$l");
+
 }
 
 /**

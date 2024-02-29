@@ -20,4 +20,5 @@ RUN service postgresql restart \
   && drush tripal:trp-import-types --username=drupaladmin --collection_id=general_chado \
   && drush tripal:trp-import-types --username=drupaladmin --collection_id=germplasm_chado \
   && drush theme:enable trpcultivatetheme --yes \
+  && drush config-set system.theme default trpcultivatetheme --yes \
   && drush cr
