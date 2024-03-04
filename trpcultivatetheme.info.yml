@@ -6,6 +6,7 @@ package: Tripal Cultivate
 core_version_requirement: ^10
 libraries:
   - trpcultivatetheme/global
+  - trpcultivatetheme/frontpage
 regions:
   header: Header
   primary_menu: Primary menu
