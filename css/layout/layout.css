@@ -23,3 +23,22 @@
 .site-header__inner {
   padding-right: var(--content-left);
 }
+
+/**
+ * Global wrapping element.
+ * Template: page.html.twig + page--front.html.twig
+ */
+.tripalcultivate-theme-content-wrapper {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+.tripalcultivate-theme-double-columns-wide {
+  align-items: center;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
