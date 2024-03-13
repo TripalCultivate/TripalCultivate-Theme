@@ -15,12 +15,16 @@
 #}
 {% set attributes = attributes.addClass('site-branding') %}
 {% block content %}
-  <!-- BRANDING: LEFT - logo -->
-  <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-branding">
-      <a href="#"><img src="{{ site_logo }}" alt="Logo" title="Logo"></a>
+  <div class="site-branding__inner">  
+    <!-- BRANDING: LEFT - logo, site name/title and slogan text -->
+    <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-branding">
+      <a href="{{ path('<front>') }}" rel="Home" class="site-branding__logo">
+        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}">
+      </a>
       <h1 class="tripalcultivate-theme-banner-heading">
-          {{ site_name }}
-          <span class="tripalcultivate-theme-banner-heading-subtext">{{ site_slogan }}</span>
+        {{ site_name }}
+        <span class="tripalcultivate-theme-banner-heading-subtext">{{ site_slogan }}</span>
       </h1>
+    </div>
   </div>
 {% endblock %}
