@@ -7,3 +7,69 @@
 .main-content__container ul {
   list-style: square outside none;
 }
+
+/**
+ * This is an override of the 100 pixels
+ * top padding rule of content area.
+ * Applies only to front page.
+ */
+.main-content__container {
+  padding-top: 50px;
+}
+
+/**
+ * Front page tiles section
+ * Template: page--front.html.twig
+ */
+ #tripalcultivate-theme-tiles {
+  display: block;
+  height: 400px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.tripalcultivate-theme-tiles-half-column {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: 400px;
+  position: relative;
+  width: 49.5%;
+}
+.tripalcultivate-theme-tiles-half-two-thirds-row {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: 63%;
+  width: 100%;
+}
+.tripalcultivate-theme-tiles-half-one-third-row {
+  height: 33.5%;
+  width: 100%;
+}
+.tripalcultivate-theme-tiles-half-two-halves-column {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: 250px;
+  width: 49%;
+}
+.tripalcultivate-theme-tiles-half-standard {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: 47%;
+  width: 99%;
+}
+.tripalcultivate-theme-tile-margin-right {
+  margin-right: 15px;    
+}
+.tripalcultivate-theme-tile-margin-bottom {
+  margin-bottom: 15px;    
+}
+
+/* TEMP RULE */
+.is-gray {
+  background-color: #EAEAEA;
+}
