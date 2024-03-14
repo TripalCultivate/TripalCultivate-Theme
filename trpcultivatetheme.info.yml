@@ -4,6 +4,7 @@ base theme: olivero
 description: Provides a base theme for use by Tripal projects using Tripal Cultivate.
 package: Tripal Cultivate
 core_version_requirement: ^10
+logo: images/TripalCultivateLogo.png
 libraries:
   - trpcultivatetheme/global
   - trpcultivatetheme/frontpage
