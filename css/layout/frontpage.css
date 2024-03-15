@@ -28,6 +28,9 @@
  * height is 450px tall.
  *
  * Margins at 10px applied to right and bottom sides.
+ * Elements to the right and bottom will account for
+ * additional value to width or height caused by 
+ * applying the margins.
  */
 :root {
   --tile-height-scaling-factor: 25;
@@ -47,6 +50,7 @@
   padding: 0;
   position: relative;
 }
+/* Margin applied (right), margin distributed to both tiles at half pixels each. */
 .tripalcultivate-theme-tiles-half-column {
   align-self: flex-start;
   box-sizing: border-box;
@@ -55,6 +59,7 @@
   position: relative;
   width: calc(50% - (0.5 * var(--tile-margin-width)));
 }
+/* Margin applied (bottom), keeping the full height of tile. */
 .tripalcultivate-theme-tiles-half-two-thirds-row {
   align-self: flex-start;
   box-sizing: border-box;
@@ -62,10 +67,12 @@
   height: var(--tile-two-thirds);
   width: 100%;
 }
+/* Height is margin width less to account for margin of the 2/3 tile. */
 .tripalcultivate-theme-tiles-half-one-third-row {
   height: calc(var(--tile-one-third) - var(--tile-margin-width));
   width: 100%;
 }
+/* Second tile to the right will account for the margin. */
 .tripalcultivate-theme-tiles-half-two-halves-column {
   align-self: flex-start;
   display: flex;
@@ -75,9 +82,13 @@
   height: var(--tile-two-thirds);
   width: 50%;
 }
+.tripalcultivate-theme-tiles-half-two-halves-column:nth-child(2) {
+  width: calc(50% - var(--tile-margin-width));
+}
+/* Width is less margin width since to get to standard tile, margin applied 1x from adjacent tile. */
 .tripalcultivate-theme-tiles-half-standard {
   flex: 1;
-  width: calc(100% - var(--tile-margin-width));
+  width: 100%;
 }
 .tripalcultivate-theme-tile-margin-right {
   margin-right: var(--tile-margin-width);    
