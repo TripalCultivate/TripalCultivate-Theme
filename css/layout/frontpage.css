@@ -7,3 +7,97 @@
 .main-content__container ul {
   list-style: square outside none;
 }
+
+/**
+ * This is an override of the 100 pixels
+ * top padding rule of content area.
+ * Applies half value of the padding, only to front page.
+ */
+.main-content__container {
+  padding-top: var(--sp2-5);
+}
+
+/**
+ * Front page tiles section
+ * Template: page--front.html.twig
+ */
+
+/**
+ * Relative to document font size, the tile height
+ * is 25 times the value. At 18px set value, tile
+ * height is 450px tall.
+ *
+ * Margins at 10px applied to right and bottom sides.
+ * Elements to the right and bottom will account for
+ * additional value to width or height caused by 
+ * applying the margins.
+ */
+:root {
+  --tile-height-scaling-factor: 25;
+  --tile-margin-width: 10px;
+
+  --tile-height: calc(var(--tile-height-scaling-factor) * var(--sp));
+  --tile-half: calc(0.5 * var(--tile-height));
+  --tile-one-third: calc(0.3333 * var(--tile-height));
+  --tile-two-thirds: calc(0.6667 * var(--tile-height));
+}
+
+#tripalcultivate-theme-tiles {
+  display: block;
+  height: var(--tile-height);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/* Margin applied (right), margin distributed to both tiles at half pixels each. */
+.tripalcultivate-theme-tiles-half-column {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: var(--tile-height);
+  position: relative;
+  width: calc(50% - (0.5 * var(--tile-margin-width)));
+}
+/* Margin applied (bottom), keeping the full height of tile. */
+.tripalcultivate-theme-tiles-half-two-thirds-row {
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: var(--tile-two-thirds);
+  width: 100%;
+}
+/* Height is margin width less to account for margin of the 2/3 tile. */
+.tripalcultivate-theme-tiles-half-one-third-row {
+  height: calc(var(--tile-one-third) - var(--tile-margin-width));
+  width: 100%;
+}
+/* Second tile to the right will account for the margin. */
+.tripalcultivate-theme-tiles-half-two-halves-column {
+  align-self: flex-start;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: var(--tile-two-thirds);
+  width: 50%;
+}
+.tripalcultivate-theme-tiles-half-two-halves-column:nth-child(2) {
+  width: calc(50% - var(--tile-margin-width));
+}
+/* Width is less margin width since to get to standard tile, margin applied 1x from adjacent tile. */
+.tripalcultivate-theme-tiles-half-standard {
+  flex: 1;
+  width: 100%;
+}
+.tripalcultivate-theme-tile-margin-right {
+  margin-right: var(--tile-margin-width);    
+}
+.tripalcultivate-theme-tile-margin-bottom {
+  margin-bottom: var(--tile-margin-width);    
+}
+
+/* TEMP RULE */
+.is-gray {
+  background-color: #EAEAEA;
+}

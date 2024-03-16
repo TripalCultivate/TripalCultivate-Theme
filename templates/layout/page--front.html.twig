@@ -99,26 +99,61 @@
     <div id="main-wrapper" class="layout-main-wrapper layout-container">
       <div id="main" class="layout-main">
         <div class="main-content">
+
           <a id="main-content" tabindex="-1"></a>
           {{ page.hero }}
           <div class="main-content__container container">
+            
             {{ page.highlighted }}
+            {# Main contents in tiles layout. #}
+            <div class="tripalcultivate-theme-content-wrapper">
+              <div id="tripalcultivate-theme-tiles">
+                
+                {# Divide content into 2 halves, where the first half is used in its entirety whereas the other half is further divided into tiles. #}
+                <div class="tripalcultivate-theme-double-columns-wide">
+                  
+                  {# This is first half positioned to the left (large half tile). #}
+                  <div class="tripalcultivate-theme-tiles-half-column tripalcultivate-theme-tile-margin-right is-gray">
+                    <div class="tripalcultivate-theme-tile-wrapper">
+                      Large Half Tile
+                    </div>
+                  </div>
 
-            <!-- Current Tripal cultivate information as a placeholder until we get the frontpage in place. -->
-            <p>Tripal Cultivate is a collection of Tripal extension packages focused on providing intuitive data management support for breeding and pre-breeding activities to help you to</p>
-            <ul>
-              <li>Diversify your crossing block with intuitive germplasm search form integrating passport, phenotypic and genotypic data.</li>
-              <li>Streamline project management and easily incorporate pre-breeding data into your breeding workflow with a shared platform.</li>
-              <ul>
-                <li>Ensure germplasm information is correctly associated with pre-breeding research data.</li>
-                <li>Access genotypic and phenotypic data from ongoing pre-breeding research studies when searching for parent material.</li>
-                <li>Easily test tools developed for pre-breeding analysis on breeding material due to shared data storage and formats.</li>
-              </ul>
-              <li>Customize your site by introducing tech savvy staff to built-in administrative interfaces and a vast collection of pluggable themes (i.e. change styles) and modules (i.e. add functionality) provided by Drupal and Tripal international communities.</li>
-              <li>Integrate new visualization and data analysis tools with less developer-time due to our extensive APIs and modular, open-source framework.</li>
-            </ul>
+                  {# This is the second half positioned to the right (large half tile further divided into smaller tile sections). #}
+                  <div class="tripalcultivate-theme-tiles-half-column">
+                    <div class="tripalcultivate-theme-tiles-half-two-thirds-row tripalcultivate-theme-tile-margin-bottom">
+                      <div class="tripalcultivate-theme-double-columns-wide">
+                        <div class="tripalcultivate-theme-tiles-half-two-halves-column tripalcultivate-theme-tile-margin-right is-gray">
+                          <div class="tripalcultivate-theme-tile-wrapper">
+                            Banner Style Tall Tile
+                          </div>
+                        </div>
 
+                        <div class="tripalcultivate-theme-tiles-half-two-halves-column">
+                          <div class="tripalcultivate-theme-tiles-half-standard tripalcultivate-theme-tile-margin-bottom is-gray">
+                            <div class="tripalcultivate-theme-tile-wrapper">
+                              Standard Tile
+                            </div>
+                          </div>
 
+                          <div class="tripalcultivate-theme-tiles-half-standard is-gray">
+                            <div class="tripalcultivate-theme-tile-wrapper">
+                              Standard Tile
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tripalcultivate-theme-tiles-half-one-third-row is-gray">
+                      <div class="tripalcultivate-theme-tile-wrapper">
+                        Banner Style Wide Tile
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
           </div>
         </div>
         <div class="social-bar">
