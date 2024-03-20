@@ -41,6 +41,9 @@
  * - page.breadcrumb: Items for the breadcrumb region.
  * - page.social: Items for the social region.
  *
+ * Tripal Cultivate Theme custom regions:
+ * - page.trpcultivatetheme_tiles_large_half: Large half tile in the tiles section.
+ *
  * @see template_preprocess_page()
  * @see html.html.twig
  */
@@ -115,7 +118,7 @@
                   {# This is first half positioned to the left (large half tile). #}
                   <div class="tripalcultivate-theme-tiles-half-column tripalcultivate-theme-tile-margin-right is-gray">
                     <div class="tripalcultivate-theme-tile-wrapper">
-                      Large Half Tile
+                      {{ page.trpcultivatetheme_tiles_large_half }}
                     </div>
                   </div>
 

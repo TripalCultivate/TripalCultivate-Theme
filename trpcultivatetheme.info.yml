@@ -22,4 +22,5 @@ regions:
   content_below: Content Below
   footer_top: Footer Top
   footer_bottom: Footer Bottom
-
+  # Tripal Cultivate Theme Regions.
+  trpcultivatetheme_tiles_large_half: Tripal Cultivate Theme Tiles - Large Half
