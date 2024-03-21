@@ -23,4 +23,9 @@ regions:
   footer_top: Footer Top
   footer_bottom: Footer Bottom
   # Tripal Cultivate Theme Regions.
-  trpcultivatetheme_tiles_large_half: Tripal Cultivate Theme Tiles - Large Half
+  # Front page tile sections - Tile layout from left to right.
+  trpcultivatetheme_tiles_large_half:      Tripal Cultivate Theme Tiles - Large Half
+  trpcultivatetheme_tiles_banner_tall:     Tripal Cultivate Theme Tiles - Banner Style Tall
+  trpcultivatetheme_tiles_banner_wide:     Tripal Cultivate Theme Tiles - Banner Style Wide
+  trpcultivatetheme_tiles_standard_top:    Tripal Cultivate Theme Tiles - Standard Top
+  trpcultivatetheme_tiles_standard_bottom: Tripal Cultivate Theme Tiles - Standard Bottom
