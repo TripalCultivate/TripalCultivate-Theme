@@ -1,6 +1,6 @@
 ARG drupalversion='10.2.x-dev'
 ARG phpversion='8.3'
-ARG pgsqlversion='16'
+ARG pgsqlversion='13'
 FROM knowpulse/tripalcultivate:base-notheme-drupal${drupalversion}-php${phpversion}-pgsql${pgsqlversion}
 
 ## Setup this container to show theme debugging settings
@@ -9,6 +9,14 @@ FROM knowpulse/tripalcultivate:base-notheme-drupal${drupalversion}-php${phpversi
 WORKDIR /var/www/drupal/web/sites/default/
 RUN cp default.services.yml services.yml \
   && sed -i '82s/debug: false/debug: true/' services.yml
+
+## Change our working directory to the theme companion module
+COPY ./trpcultivatetheme_companion /var/www/drupal/web/modules/contrib/trpcultivatetheme_companion
+WORKDIR /var/www/drupal/web/modules/contrib/trpcultivatetheme_companion
+
+## Enable the module.
+RUN service postgresql restart \
+  && drush pm:install trpcultivatetheme_companion --yes
 
 ## Change our working directory to the new theme
 COPY ./trpcultivatetheme /var/www/drupal/web/themes/trpcultivatetheme

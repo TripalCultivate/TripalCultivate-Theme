@@ -1,0 +1,5 @@
+name: 'TripalCultivate Theme Companion'
+type: module
+description: 'Provides Block types used by the Tripal Cultivate Theme.'
+package: Tripal Cultivate
+core_version_requirement: ^10 || ^11
