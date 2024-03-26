@@ -32,3 +32,37 @@ function trpcultivatetheme_preprocess_page(array &$variables): void {
 function trpcultivatetheme_preprocess_node(array &$variables): void {
 
 }
+
+/**
+ * Implement hook_theme_suggestions_block_alter() for tiles section templates.
+ *
+ * @see Olivero hook_theme_suggestions_block_alter implementation.
+ */
+function trpcultivatetheme_theme_suggestions_block_alter(&$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id'])) {
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+
+    if ($block) {
+      $region = $block
+        ->getRegion();
+
+      // Add tile content and markup into a tile region that uses the prefix
+      // trpcultivatetheme (theme name) keyword only.
+      $def_theme = \Drupal::config('system.theme')
+        ->get('default');
+            
+      $regions = system_region_list($def_theme);
+      foreach($regions as $region_name => $_) {
+        if (preg_match('/^' . $def_theme . '/', $region_name) && $region == $region_name) {
+          $suggestions[] = 'block__' . $region_name;
+          $suggestions[] = 'block__' . str_replace('_', '-', $region_name) . '__block';
+          $suggestions[] = 'block__' . $region_name . '__' . 'plugin_id' . '__' . $variables['elements']['#plugin_id'];
+          $suggestions[] = 'block__' . $region_name . '__' . 'id' . '__' . $variables['elements']['#id'];
+        }
+      }  
+    }  
+  }
+}

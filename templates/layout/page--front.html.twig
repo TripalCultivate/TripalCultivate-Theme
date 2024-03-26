@@ -41,6 +41,18 @@
  * - page.breadcrumb: Items for the breadcrumb region.
  * - page.social: Items for the social region.
  *
+ * Tripal Cultivate Theme custom regions:
+ * Frontpage Top Tile Grid. Each region contains blocks and is themed via it's own template.
+ * ________________
+ * |      | B  |D_|
+ * |  A   |____|E_|
+ * |______|_C_____|
+ * - A) page.trpcultivatetheme_tiles_large_half
+ * - B) page.trpcultivatetheme_tiles_banner_tall
+ * - C) page.trpcultivatetheme_tiles_banner_wide
+ * - D) page.trpcultivatetheme_tiles_standard_top
+ * - E) page.trpcultivatetheme_tiles_standard_bottom
+ *
  * @see template_preprocess_page()
  * @see html.html.twig
  */
@@ -115,7 +127,8 @@
                   {# This is first half positioned to the left (large half tile). #}
                   <div class="tripalcultivate-theme-tiles-half-column tripalcultivate-theme-tile-margin-right is-gray">
                     <div class="tripalcultivate-theme-tile-wrapper">
-                      Large Half Tile
+                      {# Large Half Tile. #}
+                      {{ page.trpcultivatetheme_tiles_large_half }}
                     </div>
                   </div>
 
@@ -125,20 +138,23 @@
                       <div class="tripalcultivate-theme-double-columns-wide">
                         <div class="tripalcultivate-theme-tiles-half-two-halves-column tripalcultivate-theme-tile-margin-right is-gray">
                           <div class="tripalcultivate-theme-tile-wrapper">
-                            Banner Style Tall Tile
+                            {# Banner Style Tall Tile. #}
+                            {{ page.trpcultivatetheme_tiles_banner_tall }}
                           </div>
                         </div>
 
                         <div class="tripalcultivate-theme-tiles-half-two-halves-column">
                           <div class="tripalcultivate-theme-tiles-half-standard tripalcultivate-theme-tile-margin-bottom is-gray">
                             <div class="tripalcultivate-theme-tile-wrapper">
-                              Standard Tile
+                              {# Standard Tile (TOP). #}
+                              {{ page.trpcultivatetheme_tiles_standard_top }}
                             </div>
                           </div>
 
                           <div class="tripalcultivate-theme-tiles-half-standard is-gray">
                             <div class="tripalcultivate-theme-tile-wrapper">
-                              Standard Tile
+                              {# Standard Tile (BOTTOM). #}
+                              {{ page.trpcultivatetheme_tiles_standard_bottom }}
                             </div>
                           </div>
                         </div>
@@ -147,7 +163,8 @@
 
                     <div class="tripalcultivate-theme-tiles-half-one-third-row is-gray">
                       <div class="tripalcultivate-theme-tile-wrapper">
-                        Banner Style Wide Tile
+                        {# Banner Style Wide Tile. #}
+                        {{ page.trpcultivatetheme_tiles_banner_wide }}
                       </div>
                     </div>
                   </div>
