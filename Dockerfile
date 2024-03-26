@@ -1,6 +1,6 @@
 ARG drupalversion='10.2.x-dev'
 ARG phpversion='8.3'
-ARG pgsqlversion='13'
+ARG pgsqlversion='16'
 FROM knowpulse/tripalcultivate:base-notheme-drupal${drupalversion}-php${phpversion}-pgsql${pgsqlversion}
 
 ## Setup this container to show theme debugging settings
@@ -11,7 +11,7 @@ RUN cp default.services.yml services.yml \
   && sed -i '82s/debug: false/debug: true/' services.yml
 
 ## Change our working directory to the new theme
-COPY . /var/www/drupal/web/themes/trpcultivatetheme
+COPY ./trpcultivatetheme /var/www/drupal/web/themes/trpcultivatetheme
 WORKDIR /var/www/drupal/web/themes/trpcultivatetheme
 
 ## Complete Tripal installation and enable the theme.
