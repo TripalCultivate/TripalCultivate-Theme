@@ -1,0 +1,33 @@
+{
+  "name": "tripalcultivate/trpcultivatetheme-theme",
+  "type": "drupal-theme",
+  "description": "Tripal Cultivate Theme provides default styling for the Drupal websites using the Tripal Cultivate family of packages.",
+  "keywords": [
+    "tripal",
+    "drupal",
+    "theme"
+  ],
+  "homepage": "https://github.com/TripalCultivate/TripalCultivate-Theme",
+  "support": {
+    "issues": "https://github.com/TripalCultivate/TripalCultivate-Theme/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Reynold Tan",
+      "homepage": "https://github.com/reynoldtan",
+      "role": "Lead Developer"
+    },
+    {
+      "name": "Lacey-Anne Sanderson",
+      "homepage": "https://github.com/laceysanderson/",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "drupal/core": "^10.0",
+    "tripalcultivate/trpcultivatetheme-companion": "*"
+  }
+}

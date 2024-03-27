@@ -10,8 +10,16 @@ WORKDIR /var/www/drupal/web/sites/default/
 RUN cp default.services.yml services.yml \
   && sed -i '82s/debug: false/debug: true/' services.yml
 
+## Change our working directory to the theme companion module
+COPY ./trpcultivatetheme_companion /var/www/drupal/web/modules/contrib/trpcultivatetheme_companion
+WORKDIR /var/www/drupal/web/modules/contrib/trpcultivatetheme_companion
+
+## Enable the module.
+RUN service postgresql restart \
+  && drush pm:install trpcultivatetheme_companion --yes
+
 ## Change our working directory to the new theme
-COPY . /var/www/drupal/web/themes/trpcultivatetheme
+COPY ./trpcultivatetheme /var/www/drupal/web/themes/trpcultivatetheme
 WORKDIR /var/www/drupal/web/themes/trpcultivatetheme
 
 ## Complete Tripal installation and enable the theme.

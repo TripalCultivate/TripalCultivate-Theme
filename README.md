@@ -24,7 +24,10 @@ As you may have noticed there is a dockerfile in this repository. The recommende
 git clone https://github.com/TripalCultivate/TripalCultivate-Theme trpcultivatetheme
 cd trpcultivatetheme
 docker build --build-arg drupalversion=10.2.x-dev --build-arg phpversion=8.3 --tag=trpcultivate-theme:4x ./
-docker run --publish=80:80 -tid --name=theme4x --volume=`pwd`:/var/www/drupal/web/themes/trpcultivatetheme trpcultivate-theme:4x
+docker run --publish=80:80 -tid --name=theme4x \
+  --volume=$(pwd)/trpcultivatetheme:/var/www/drupal/web/themes/trpcultivatetheme \
+  --volume=$(pwd)/trpcultivatetheme_companion:/var/www/drupal/web/modules/contrib/trpcultivatetheme_companion \
+  trpcultivate-theme:4x
 docker exec theme4x service postgresql restart
 ```
 
