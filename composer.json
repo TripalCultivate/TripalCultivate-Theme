@@ -28,7 +28,8 @@
   "require": {
     "php": "^8.0",
     "drupal/core": "^10.0",
-    "tripalcultivate/trpcultivatetheme-theme": "*"
+    "tripalcultivate/trpcultivatetheme-theme": "*",
+    "tripalcultivate/trpcultivatetheme-companion": "*"
   },
   "repositories": [
     {
