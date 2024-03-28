@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for Tripal Cultivate Theme Companion.
+ */
+
+use Drupal\block_content\Entity\BlockContentType;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_enable().
+ * Create block content type and fields used by the tile layout in the theme companion.
+ */
+function trpcultivatetheme_companion_enable() {
+  // All content assets (field and storage) go into this bundle.
+  $tile_content = 'trpcultivatetheme_tile_block';
+
+  // Create the block type.
+  // @see admin/structure/block-content.
+  $tile_block = [
+    'id' => $tile_content,
+    'label' => 'Tripal Cultivate Theme Tile Block',
+    'description' => 'This block content type is used to insert content into tiles'
+  ];
+
+  BlockContentType::create($tile_block)
+    ->save();
+
+  // Tile fields schema:
+  $tile_fields = [
+    // Tile title text.
+    [
+      'field_name' => 'tripalcultivate_theme_tile_title',
+      'entity_type' => 'block_content',
+      'label' => 'Title Text',
+      'type' => 'text',
+      'settings' => [
+        'max_length' => 255
+      ]
+    ],
+
+    // Tile link.
+    // Tile link title.
+    // Tile cover image.
+    // Tile background colour.
+  ];
+ 
+  // Package block type, field and field storage.
+  foreach($tile_fields as $tile_field) {
+    // Create tile field storage:
+    FieldStorageConfig::create($tile_field)
+      ->save();
+    
+    // Attach field to the tile content block type.
+    $tile_field['bundle'] = $tile_content;
+    FieldConfig::create($tile_field)
+      ->save();
+  }
+}
