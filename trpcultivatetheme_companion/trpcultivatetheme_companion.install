@@ -34,10 +34,13 @@ function trpcultivatetheme_companion_enable() {
         'display' => 'basic_string',
         'form' => 'string_textarea'
       ],
-      'settings' => ['max_length' => 255] 
+      'settings' => [
+        'placeholder' => 'eg. New Bioinformatics Tools Launch',
+        'max_length' => 255
+      ] 
     ],
     
-    // Tile link (url).
+    // Tile link (url) and text combo.
     $field_prefix . 'link' => [
       'label' => 'Tile Link (URL)',
       'weight' => 1,
@@ -51,41 +54,32 @@ function trpcultivatetheme_companion_enable() {
         'protocols' => ['http', 'https']
       ] 
     ],
-    
-    // Tile link text/title.
-    $field_prefix . 'linktext' => [
-      'label' => 'Tile Link Text',
-      'weight' => 2,
-      'type' => [
-        'storage' => 'string',
-        'display' => 'basic_string',
-        'form' => 'string_textfield'
-      ],
-      'settings' => ['max_length' => 100]
-    ],
 
     // Tile cover image.
     $field_prefix . 'coverimg' => [
-      'label' => 'Tile Cover Image (JPG, GIF or PNG)',
-      'weight' => 3,
+      'label' => 'Tile Cover Image (JPG, GIF, WEBP or PNG)',
+      'weight' => 2,
       'type' => [
         'storage' => 'image',
         'display' => 'file_uri',
         'form' => 'image_image'
       ],
-      'settings' => ['file_extensions' => 'jpg jpeg gif png']
+      'settings' => ['file_extensions' => 'jpg jpeg gif webp png']
     ],
 
     // Tile background colour.
     $field_prefix . 'bgcolor' => [
       'label' => 'Tile Background Colour',
-      'weight' => 4,
+      'weight' => 3,
       'type' => [
         'storage' => 'string',
         'display' => 'basic_string',
         'form' => 'string_textarea'
       ],
-      'settings' => ['max_length' => 7]
+      'settings' => [
+        'placeholder' => 'eg. #000000 for black',
+        'max_length' => 7
+      ]
     ],
 
     // Additional fields here.
@@ -148,6 +142,7 @@ function trpcultivatetheme_companion_enable() {
         'weight'  => $fieldprop['weight'],
         'hidden' => FALSE,
         'label' => 'hidden',
+        'settings' => $fieldprop['settings']
       ];
 
       $field_setting['type'] = $fieldprop['type']['form'];
