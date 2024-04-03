@@ -97,7 +97,7 @@
   margin-bottom: var(--tile-margin-width);    
 }
 
-/* TEMP RULE */
-.is-gray {
-  background-color: #EAEAEA;
+/* Default background color of tiles - matches the color scheme of base theme. */
+.tripalcultivate-theme-tile-bgcolor {
+  background-color: var(--color--primary-50);
 }

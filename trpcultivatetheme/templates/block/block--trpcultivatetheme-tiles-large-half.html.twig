@@ -1,3 +1,4 @@
+{% extends "block.html.twig" %}
 {#
 /**
  * @file
@@ -13,6 +14,8 @@
  */
 #}
 
-<div class="tripalcultivate-theme-tiles-large-half">    
-  {{ content }}
-</div>
+{% block content %}
+  <div class="tripalcultivate-theme-tiles-large-half">    
+    {{ content }}
+  </div>
+{% endblock %}
