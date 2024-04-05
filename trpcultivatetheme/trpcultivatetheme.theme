@@ -66,3 +66,13 @@ function trpcultivatetheme_theme_suggestions_block_alter(&$suggestions, array $v
     }  
   }
 }
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function trpcultivatetheme_preprocess_field(&$variables) {
+  
+    $raw_value = $variables['element']['#items']->value;
+    $variables['trpcultivatetheme_tiles_raw_value_title'] = $raw_value;
+  
+}
