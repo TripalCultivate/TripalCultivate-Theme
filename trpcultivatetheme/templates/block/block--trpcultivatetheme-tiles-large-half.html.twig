@@ -16,7 +16,8 @@
 
 {% block content %}
   <div class="tripalcultivate-theme-tiles-large-half"> 
-    {# content.trpcultivatetheme_tile_title.['#items'].value|striptags|raw #}
-    {{ trpcultivatetheme_tiles_raw_value_title }}
+    {% if content is defined %}
+    
+    {% endif %}
   </div>
 {% endblock %}

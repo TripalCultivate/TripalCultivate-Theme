@@ -5,6 +5,7 @@
  * Functions to support theming in the Tripal Cultivate Base Theme theme.
  */
 
+
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
@@ -70,9 +71,35 @@ function trpcultivatetheme_theme_suggestions_block_alter(&$suggestions, array $v
 /**
  * Implements hook_preprocess_field().
  */
-function trpcultivatetheme_preprocess_field(&$variables) {
-  
-    $raw_value = $variables['element']['#items']->value;
-    $variables['trpcultivatetheme_tiles_raw_value_title'] = $raw_value;
-  
+function trpcultivatetheme_preprocess_block(&$variables) {
+  $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+
+  if ($block) {
+    $content_region_placement = $block->getRegion();
+
+    // Only theme trpcultivatetheme specific content.
+    $def_theme = \Drupal::config('system.theme')
+        ->get('default');
+
+    // Fields:
+    $fields = [
+      $def_theme . '_tile_title',
+      $def_theme . '_tile_link',
+      $def_theme . '_tile_coverimg',
+      $def_theme . '_tile_bgcolor',
+    ];
+
+    $tile_raw_content = [];
+
+    if (preg_match('/^' . $def_theme . '/', $content_region_placement)) {
+      foreach($fields as $field) {
+        $tile_raw_content[ $content_region_placement ][] = $variables['content']['#block_content']
+          ->get($field)->value;
+      }
+    }
+  }
+
+  // dpm($tile_raw_content);
 }
