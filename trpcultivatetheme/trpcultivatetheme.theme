@@ -95,11 +95,64 @@ function trpcultivatetheme_preprocess_block(&$variables) {
 
     if (preg_match('/^' . $def_theme . '/', $content_region_placement)) {
       foreach($fields as $field) {
-        $tile_raw_content[ $content_region_placement ][] = $variables['content']['#block_content']
-          ->get($field)->value;
+        $field_content = $variables['content']['#block_content']
+          ->get($field)->first();
+        
+        if ($field_content) {
+          if ($field == $def_theme . '_tile_link') {
+            // Tile Link and link title text.
+            $link  = $field_content->getUrl();  
+            $text = $field_content->get('title')->getValue();
+            
+            $tile_link = '';
+            if  ($link && $text) {
+              $tile_link = \Drupal\Core\Link::fromTextAndUrl($text, $link)
+                ->toString();
+            }
+
+            $tile_raw_content[ $content_region_placement ][][ $field ] = $tile_link; 
+          }
+          elseif ($field == $def_theme . '_tile_coverimg') {
+            // Tile cover image.
+            $img_path = $field_content
+              ->entity
+              ->createFileUrl();
+
+            $tile_coverimg = '';
+            if ($img_path) {
+              $tile_coverimg = $img_path;
+            }
+            
+            $tile_raw_content[ $content_region_placement ][][ $field ] = $tile_coverimg;
+          }
+          elseif ($field == $def_theme . '_tile_title') {
+            // Tile title.
+            $title = $field_content
+              ->value;
+
+            $tile_title = '';
+            if ($tile_title) {
+              $tile_title = $tile_title;
+            }
+
+            $tile_raw_content[ $content_region_placement ][][ $field ] = $tile_title;
+          }
+          else {
+            // Tile bg color.
+            $bgcolor = $field_content
+              ->value;
+            
+            $tile_bgcolor = 'none';
+            if ($bgcolor) {
+              $tile_bgcolor = $bgcolor;
+            }
+
+            $tile_raw_content[ $content_region_placement ][][ $field ] = $tile_bgcolor;
+          }          
+        }
       }
     }
   }
 
-  // dpm($tile_raw_content);
+  //dpm($tile_raw_content);
 }
