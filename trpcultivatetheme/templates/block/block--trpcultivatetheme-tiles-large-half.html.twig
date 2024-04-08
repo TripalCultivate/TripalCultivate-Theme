@@ -10,14 +10,33 @@
  * |______|______|
  *
  * Available variables:
- * -
+ * - trpcultivatetheme_tiles_large_half: (array) contains raw unformatted values entered into fields.
+ *
+ * Keys: to access, use . notation ie. trpcultivatetheme_tiles_large_half.title for title field value or
+ * trpcultivatetheme_tiles_large_half.link.url for link url field value.
+ *
+ * - title: Tile title text.
+ * - link: (array) Tile link. This value has link url (url key) and link text value (text key).
+ * - coverimg: Tile cover image.
+ * - bgcolor: Tile background color.
+ *
+ * @see hook_preprocess_block() implementation in .theme.
+ *      css/components/slider.css
+ *
+ * NOTE: this tile does not use bgcolor field value since each slide will
+ * will use the cover image to fill the entire area of the tile.
  */
 #}
 
 {% block content %}
-  <div class="tripalcultivate-theme-tiles-large-half"> 
-    {% if content is defined %}
-    
-    {% endif %}
-  </div>
+  <li>
+    <div class="tripalcultivate-theme-tiles-large-half"> 
+      {{ trpcultivatetheme_tiles_large_half.title }}
+      <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title}}" target="_blank">
+        {{ trpcultivatetheme_tiles_large_half.link.text }}
+      </a>
+    </div>
+
+    <img src="{{ trpcultivatetheme_tiles_large_half.coverimg }}" alt="{{ trpcultivatetheme_tiles_large_half.title}}" />
+  </li>
 {% endblock %}
