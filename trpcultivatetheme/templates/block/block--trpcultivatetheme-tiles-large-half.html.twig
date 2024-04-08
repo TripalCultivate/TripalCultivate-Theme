@@ -25,18 +25,33 @@
  *
  * NOTE: this tile does not use bgcolor field value since each slide will
  * will use the cover image to fill the entire area of the tile.
+ *
+ * Slide layout:
+ * <div>
+ *   <div>
+ *     Markup for context menu
+ *   </div>
+ *
+ *   <div> Body
+ *     Title
+ *     <a>Link</a>
+ *   </div> 
+ * </div>
  */
 #}
 
 {% block content %}
-  <li>
-    <div class="tripalcultivate-theme-tiles-large-half"> 
-      {{ trpcultivatetheme_tiles_large_half.title }}
-      <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title}}" target="_blank">
-        {{ trpcultivatetheme_tiles_large_half.link.text }}
-      </a>
+  {# Cover image of the slide #}
+  {% set file_url = trpcultivatetheme_tiles_large_half.coverimg %}
+  
+  <div class="tripalcultivate-theme-tiles-large-half" style="background-image: url('{{ file_url }}');">
+    <div class="tripalcultivate-theme-tiles-slider-slide-item">
+      <div>
+        {{ trpcultivatetheme_tiles_large_half.title }}
+        <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title}}" target="_blank">
+          {{ trpcultivatetheme_tiles_large_half.link.text }}
+        </a>
+      </div>
     </div>
-
-    <img src="{{ trpcultivatetheme_tiles_large_half.coverimg }}" alt="{{ trpcultivatetheme_tiles_large_half.title}}" />
-  </li>
+  </div>
 {% endblock %}

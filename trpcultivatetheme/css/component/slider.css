@@ -3,6 +3,30 @@
  * Content slider in large half tile.
  */
 
-#tripalcultivate-theme-tile-slider {
+:root {
+  /* Primary colour of theme with 40% opacity */
+  --color--primary-transparent: hsla(var(--color--primary-hue), var(--color--primary-saturation), calc(1% * (var(--color--primary-lightness) - (0.36 * var(--color--primary-lightness)))), 0.4);
+}
 
+.tripalcultivate-theme-tiles-slider-slide-item {
+  height: var(--tile-height); 
+  width: 100%; 
+}
+
+/* Slider item title and link */
+.tripalcultivate-theme-tiles-slider-slide-item div {
+  background: var(--color--primary-transparent);
+  color: #FFFFFF;
+  font-size: calc(var(--font-size-base) * 2);
+  line-height: 35px;
+  position: relative;
+  padding: 15px;
+  margin: 0;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  width: 60%;
+}
+
+/* Slider controls */
+.tripalcultivate-theme-tiles-slider-controls {
+  position: absolute;
 }
