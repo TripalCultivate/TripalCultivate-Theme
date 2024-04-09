@@ -2,6 +2,7 @@
 global:
   js:
     js/trpcultivatetheme.js: {}
+    js/trpcultivatetheme-slider.js: {}
   css:
     base:
       css/base/elements.css: {}

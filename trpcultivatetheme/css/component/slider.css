@@ -31,6 +31,8 @@
 }
 
 /* Slider controls */
+
+/* On load controls are disabled. */
 .tripalcultivate-theme-tiles-slider-bullets {
   box-sizing: border-box;
   background: var(--color--primary-transparent);
@@ -41,6 +43,8 @@
   padding: 10px;
   top: 80%;
   z-index: 1000;
+
+  display: none;
 }
 
 .tripalcultivate-theme-tiles-slider-bullets div {
