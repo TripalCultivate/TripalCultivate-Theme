@@ -22,7 +22,7 @@
   background: var(--color--primary-transparent);
   color: #FFFFFF;
   font-size: calc(var(--font-size-base) * 2);
-  line-height: 35px;
+  line-height: 0.9;
   position: relative;
   padding: 15px;
   margin: 0;
@@ -43,8 +43,6 @@
   padding: 10px;
   top: 80%;
   z-index: 1000;
-
-  display: none;
 }
 
 .tripalcultivate-theme-tiles-slider-bullets div {
