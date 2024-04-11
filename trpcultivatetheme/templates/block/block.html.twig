@@ -48,10 +48,7 @@
  */
 #}
 
-{% set is_large_half_tile = '' %}
-{% if trpcultivatetheme_tiles_large_half is iterable %}
-  {% set is_large_half_tile = 'none' %}
-{% endif %}
+{% set is_large_half_tile = trpcultivatetheme_tiles_large_half ? 'none' : '' %}
 
 <div{{ attributes.addClass(classes) }} style="display: {{ is_large_half_tile }}">
   {{ title_prefix }}

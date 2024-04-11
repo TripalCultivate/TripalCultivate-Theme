@@ -5,7 +5,8 @@
 
 (function ($, Drupal, drupalSettings) {
   var initialized;
-  
+  var autoSlider;
+
   Drupal.behaviors.tripalCultivateThemeSlider = {
     attach: function(context, settings) {
       loadSlider();
@@ -23,13 +24,15 @@
       // Based on the number of slide, append slider controls (bullets)
       // when there is at least 2 slides, otherwise slide will be a static slide.
 
-      // Child div in the selector is the the base theme's markup for region.
+      // Immediate child div in the selector is the the base theme's markup for region.
       var tileContainer = $('#tripalcultivate-theme-tiles-slider-slides > div');
+      // Slides that contains the tile element and other markup applied by the base theme.
       var tiles = tileContainer.children('div');
 
       if (tiles.length > 0) {
         // A tile is present. Load the first tile (index 0).
         // Other tiles in the stack are set to no display.
+        // @see block.html.twig
         tiles.eq(0).fadeIn();
 
         // Depending on the number of slide, provide a slider control bullets
@@ -40,7 +43,7 @@
           // Start slider to cycle through the stack of slides.
           // Starting at second slide - index 1;
           var slideIndex = 1;
-          var autoSlider = setInterval(function() {
+          autoSlider = setInterval(function() {
             loadSliderSlide(slideIndex);
             // Next.
             slideIndex++;
@@ -51,6 +54,9 @@
               slideIndex = 0;
             }
           }, 5000);
+
+          // Attach event listener to tiles to pause slider on mouse over.
+          tileContainer.on('mouseover', 'div', function() { clearInterval(autoSlider); });
         } 
 
         // else, no bullets needed.
@@ -62,10 +68,12 @@
    * Append tile region with slider navigation bullets.
    * 
    * @param bulletCount
-   *   Number of bullet elements to create.
+   *   Number of bullet elements to create based on the number of
+   *   slide elements in the slide container.
    */
   function placeSliderBullets(count) {
     if (count > 1) {
+      // Bullets container.
       var container =  $('.tripalcultivate-theme-tiles-slider-bullets');
 
       for(var i = 0; i < count; i++) {
@@ -81,12 +89,6 @@
         // load the corresponding slide.
         var slideIndex = $(this).index();
         loadSliderSlide(slideIndex);
-
-        // Disable auto slider when user interacts with slider
-        // bullet control to navigate.
-        if (autoSlider) {
-          clearInterval(autoSlider);
-        }
       });
 
       // Enable slide bullets.
