@@ -51,11 +51,19 @@
 
   <div class="tripalcultivate-theme-tiles-large-half" style="background-image: url('{{ file_url }}');">
     <div class="tripalcultivate-theme-tiles-slider-slide-item">
-      <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title}}" target="_blank">
-        <div>
+      <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title }}" target="_blank">
+        
+        {# Inspect RGB value of background color if provided to apply transparency setting. #}
+        {% if trpcultivatetheme_tiles_large_half.bgcolor.rgb %}
+        {{ trpcultivatetheme_tiles_large_half.bgcolor.rgb }}
+          {% set bg = 'style="background: rgba(' ~ trpcultivatetheme_tiles_large_half.bgcolor.rgb ~ ', 0.4)";' %}
+        {% endif %}
+
+        <div {{ bg }}>
           {{ trpcultivatetheme_tiles_large_half.title }}
           <span>{{ trpcultivatetheme_tiles_large_half.link.text }}</span>
         </div>
+
       </a>
     </div>
   </div>

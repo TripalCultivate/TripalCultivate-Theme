@@ -99,7 +99,7 @@ function trpcultivatetheme_preprocess_block(&$variables) {
         'title' => 'text',     // Tile title: text value.
         'link'  => 'link',     // Tile link: url + link text object.
         'coverimg' => 'image', // Tile cover image: image object.,
-        'bgcolor'  => 'text',  // Tile background color: text/string value.
+        'bgcolor'  => 'color',  // Tile background color: text/string value.
       ];
 
       foreach($fields as $field_name => $field_type) {
@@ -124,6 +124,18 @@ function trpcultivatetheme_preprocess_block(&$variables) {
             // Fetch image uri.
             $field_value = $field_content->entity
               ->createFileUrl();            
+          }
+          elseif ($field_type == 'color') {
+            // Color type, provide hex value and rgb equivalent.
+            $hex = $field_content->value;
+            
+            $rgb = '';
+            if (preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $hex)) {
+              $c = sscanf($hex, '#%02x%02x%02x');
+              $rgb = implode(', ', $c); 
+            }
+
+            $field_value = ['hex' => $hex, 'rgb' => $rgb];
           }
           else {
             // Text value

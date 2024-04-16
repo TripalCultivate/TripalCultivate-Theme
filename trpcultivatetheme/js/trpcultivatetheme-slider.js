@@ -38,25 +38,43 @@
         // Depending on the number of slide, provide a slider control bullets
         // when there is at least 2 slides.
         if (tiles.length > 1) {
-          placeSliderBullets(tiles.length);
+          // Bullets container.
+          var bulletContainer = $('.tripalcultivate-theme-tiles-slider-bullets');
+          
+          for(var i = 0; i < tiles.length; i++) {
+            // Set the first bullet to active bullet to correspond to the first
+            // slide on page load.
+            var isActive = (i == 0) ? 'tripalcultivate-theme-tiles-slider-bullets-active' : '';
+            bulletContainer.append('<div class="' + isActive + '">&nbsp;</div>');
+          }
 
-          // Start slider to cycle through the stack of slides.
-          // Starting at second slide - index 1;
-          var slideIndex = 1;
-          autoSlider = setInterval(function() {
-            loadSliderSlide(slideIndex);
-            // Next.
-            slideIndex++;
+          // Enable slide bullets.
+          bulletContainer.fadeIn();
+          
+          // Begin slider.
+          autoSlider = setInterval(loadSliderSlide, 5000);
 
-            if (slideIndex >= tiles.length) {
-              // Reset index back to the first slide after
-              // reaching the last slide in the stack.
-              slideIndex = 0;
-            }
-          }, 5000);
-
+          // Event listeners. 
           // Attach event listener to tiles to pause slider on mouse over.
-          tileContainer.on('mouseover', 'div', function() { clearInterval(autoSlider); });
+          tileContainer.on('mouseover', 'div', stopSliderSlide);
+          
+          // Resume slider from the last slide selected.
+          tileContainer.on('mouseleave', 'div', startSliderSlide);
+
+          // Resume slider from last slide selected using slider bullets.
+          bulletContainer.on('mouseleave', 'div', startSliderSlide);
+
+          // Switch slide when bullet is clicked.
+          bulletContainer.on('click', 'div', function() {
+            // Get the index number of the bullet clicked and
+            // load the corresponding slide.
+            var slideIndex = $(this).index();
+
+            if (slideIndex) {
+              loadSliderSlide(slideIndex);
+              stopSliderSlide();
+            }
+          });
         } 
 
         // else, no bullets needed.
@@ -65,34 +83,22 @@
   }
 
   /**
-   * Append tile region with slider navigation bullets.
-   * 
-   * @param bulletCount
-   *   Number of bullet elements to create based on the number of
-   *   slide elements in the slide container.
+   * Stop slider.
    */
-  function placeSliderBullets(count) {
-    if (count > 1) {
-      // Bullets container.
-      var container =  $('.tripalcultivate-theme-tiles-slider-bullets');
+  function stopSliderSlide() {
+    if (autoSlider) {
+      clearInterval(autoSlider);
+    }
+  }
 
-      for(var i = 0; i < count; i++) {
-        // Set the first bullet to active bullet to correspond to the first
-        // slide on page load.
-        var isActive = (i == 0) ? 'tripalcultivate-theme-tiles-slider-bullets-active' : '';
-        container.append('<div class="' + isActive + '">&nbsp;</div>');
-      }
-
-      // Attach event listener to bullets.
-      container.on('click', 'div', function() {
-        // Get the index number of the bullet clicked and
-        // load the corresponding slide.
-        var slideIndex = $(this).index();
-        loadSliderSlide(slideIndex);
-      });
-
-      // Enable slide bullets.
-      container.fadeIn();
+  /**
+   * Start slider.
+   */
+  function startSliderSlide() {
+    if (autoSlider) {
+      // To ensure precise timing, clear any previous time interval.
+      clearInterval(autoSlider); 
+      autoSlider = setInterval(loadSliderSlide, 5000);
     }
   }
 
@@ -103,27 +109,36 @@
    *   Slide index number.
    */
   function loadSliderSlide(slideIndex) {
+     // Immediate child div in the selector is the the base theme's markup for region.
+     var tileContainer = $('#tripalcultivate-theme-tiles-slider-slides > div');
+     // Slides that contains the tile element and other markup applied by the base theme.
+     var tiles = tileContainer.children('div');
+
     // Active class name.
     var isActive = 'tripalcultivate-theme-tiles-slider-bullets-active';
     
     // Find the current slide by inspecting the slide bullets for
     // active class name in element class list.
-    var container = $('.tripalcultivate-theme-tiles-slider-bullets');
-    var currentSlide = container.children('.' + isActive).index();
+    var bulletContainer = $('.tripalcultivate-theme-tiles-slider-bullets');
+    var currentSlide = bulletContainer.children('.' + isActive).index();
     
-    // Switch slides.
-    // Child div in the selector is the the base theme's markup for region.
-    var tileContainer = $('#tripalcultivate-theme-tiles-slider-slides > div');
-    var tiles = tileContainer.children('div');
+    // If specific slide was provided (bullet clicked) otherwise get the next slide.
+    var nextIndex = (slideIndex) ? slideIndex : currentSlide + 1;
 
+    if (nextIndex >= tiles.length) {
+      // Reset index back to the first slide after
+      // reaching the last slide in the stack.
+      nextIndex = 0;
+    }
+
+    // Switch slides.
     tiles.eq(currentSlide).hide();
-    tiles.eq(slideIndex).fadeIn('slow');
+    tiles.eq(nextIndex).fadeIn('slow');
 
     // Update bullets.
-    container.children('div')
+    bulletContainer.children('div')
       .eq(currentSlide).removeClass(isActive);
-    container.children('div')
-      .eq(slideIndex).addClass(isActive);
+    bulletContainer.children('div')
+      .eq(nextIndex).addClass(isActive);
   }
-
 } (jQuery, Drupal, drupalSettings));
