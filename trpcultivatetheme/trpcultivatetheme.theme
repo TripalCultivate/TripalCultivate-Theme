@@ -132,7 +132,7 @@ function trpcultivatetheme_preprocess_block(&$variables) {
             $rgb = '';
             if (preg_match('/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/', $hex)) {
               $c = sscanf($hex, '#%02x%02x%02x');
-              $rgb = implode(', ', $c); 
+              $rgb = implode(',', $c); 
             }
 
             $field_value = ['hex' => $hex, 'rgb' => $rgb];

@@ -69,11 +69,9 @@
             // Get the index number of the bullet clicked and
             // load the corresponding slide.
             var slideIndex = $(this).index();
-
-            if (slideIndex) {
-              loadSliderSlide(slideIndex);
-              stopSliderSlide();
-            }
+            
+            loadSliderSlide(slideIndex);
+            stopSliderSlide();
           });
         } 
 
@@ -108,7 +106,7 @@
    * @param slideIndex
    *   Slide index number.
    */
-  function loadSliderSlide(slideIndex) {
+  function loadSliderSlide(slideIndex = -1) {
      // Immediate child div in the selector is the the base theme's markup for region.
      var tileContainer = $('#tripalcultivate-theme-tiles-slider-slides > div');
      // Slides that contains the tile element and other markup applied by the base theme.
@@ -123,12 +121,18 @@
     var currentSlide = bulletContainer.children('.' + isActive).index();
     
     // If specific slide was provided (bullet clicked) otherwise get the next slide.
-    var nextIndex = (slideIndex) ? slideIndex : currentSlide + 1;
+    var nextIndex;
 
-    if (nextIndex >= tiles.length) {
-      // Reset index back to the first slide after
-      // reaching the last slide in the stack.
-      nextIndex = 0;
+    if (slideIndex < 0) {
+      nextIndex = currentSlide + 1;
+      if (nextIndex >= tiles.length) {
+        // Reset index back to the first slide after
+        // reaching the last slide in the stack.
+        nextIndex = 0;
+      }
+    }
+    else {
+      nextIndex = slideIndex;
     }
 
     // Switch slides.

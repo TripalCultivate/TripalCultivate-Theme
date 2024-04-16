@@ -54,12 +54,9 @@
       <a href="{{ trpcultivatetheme_tiles_large_half.link.url }}" title="{{ trpcultivatetheme_tiles_large_half.title }}" target="_blank">
         
         {# Inspect RGB value of background color if provided to apply transparency setting. #}
-        {% if trpcultivatetheme_tiles_large_half.bgcolor.rgb %}
-        {{ trpcultivatetheme_tiles_large_half.bgcolor.rgb }}
-          {% set bg = 'style="background: rgba(' ~ trpcultivatetheme_tiles_large_half.bgcolor.rgb ~ ', 0.4)";' %}
-        {% endif %}
-
-        <div {{ bg }}>
+        {% set bg = trpcultivatetheme_tiles_large_half.bgcolor.rgb ? 'rgba(' ~ trpcultivatetheme_tiles_large_half.bgcolor.rgb ~ ',0.4);' : '' %}
+        
+        <div style="background: {{ bg }}">
           {{ trpcultivatetheme_tiles_large_half.title }}
           <span>{{ trpcultivatetheme_tiles_large_half.link.text }}</span>
         </div>
