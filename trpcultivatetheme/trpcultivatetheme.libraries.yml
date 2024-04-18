@@ -3,6 +3,8 @@ global:
   js:
     js/trpcultivatetheme.js: {}
     js/trpcultivatetheme-slider.js: {}
+  dependencies:
+    - core/jquery
   css:
     base:
       css/base/elements.css: {}
