@@ -101,3 +101,79 @@
 .tripalcultivate-theme-tile-bgcolor {
   background-color: var(--color--primary-50);
 }
+
+.tripalcultivate-theme-tile-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+#tripalcultivate-theme-tiles a:link {
+  text-decoration: none;
+}
+
+/* Link in tiles */
+.tripalcultivate-theme-tiles-banner-tall span, 
+.tripalcultivate-theme-tiles-banner-wide span {
+  color: #FFFFFF;
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 300;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 30px 0 0 0;
+  position: relative;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.tripalcultivate-theme-tiles-banner-tall span:after,
+.tripalcultivate-theme-tiles-banner-wide span:after {
+  content: '\2192';
+  font-size: 1.7em;
+  padding-left: 5px;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+/* Image placement in tiles */
+/* Bottom left half */
+.tripalcultivate-theme-tiles-banner-wide {
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+/* Bottom half */
+.tripalcultivate-theme-tiles-banner-tall {
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+/* Banner styles */
+.tripalcultivate-theme-tiles-banner-tall div,
+.tripalcultivate-theme-tiles-banner-wide div {
+  color: #FFFFFF;
+  font-size: calc(var(--font-size-base) * 1.2);
+  line-height: 0.9;
+  position: relative;
+  padding: 15px;
+  margin: 0;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  position: absolute;
+  right: 2%;
+}
+
+.tripalcultivate-theme-tiles-banner-tall div {
+  width: 100%;
+}
+
+/* Set the height container element inserted by base theme */
+.tripalcultivate-theme-tiles-half-two-halves-column:first-child div > div {
+  height: calc(var(--tile-two-thirds) + var(--tile-margin-width));  
+}
+
+.tripalcultivate-theme-tiles-half-one-third-row div > div {
+  height: calc(var(--tile-one-third) - var(--tile-margin-width));
+}
