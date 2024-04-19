@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ *
+ * This will add JS color picker library to form that add/edit tile block content
+ * in the dependent theme - Tripal Cultivate Theme.
+ *
+ * The color picker will launch a color picker window to allow user to pick a color
+ * that will be transferred to the field in hex code value.
+ *
+ * @see libraries.
+ */
+function trpcultivatetheme_companion_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $tile_block = 'block_content_trpcultivatetheme_tile_block';
+
+  if ($form_id == $tile_block . '_form' || $form_id == $tile_block . '_edit_form') {
+    // When the form is to add or edit a tile block content, attach color picker library.
+    $form['#attached']['library'][] = 'trpcultivatetheme_companion/trpcultivatetheme-color-picker';
+    $form['trpcultivatetheme_tile_bgcolor']['#attributes']['style'] = 'width: 200px';
+  }
+}
