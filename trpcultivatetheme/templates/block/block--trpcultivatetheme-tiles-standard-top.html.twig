@@ -15,7 +15,18 @@
 #}
 
 {% block content %}
-  <div class="tripalcultivate-theme-tiles-standard-top">    
-    {{ content }}
+  {# Cover image of the slide #}
+  {% set file_url = trpcultivatetheme_tiles_standard_bottom.coverimg %}
+
+  <!-- Base theme will append additional markup to this area //-->
+
+  <div class="tripalcultivate-theme-tiles-standard-bottom" style="background-image: url('{{ file_url }}'); background-color: {{ trpcultivatetheme_tiles_standard_bottom.bgcolor.hex }}">    
+
+    <a href="{{ trpcultivatetheme_tiles_standard_bottom.link.url }}" title="{{ trpcultivatetheme_tiles_standard_bottom.title}}" target="_blank">
+    {{ trpcultivatetheme_tiles_standard_bottom.link.text }}
+    </a>
+
   </div>
+
+
 {% endblock %}
