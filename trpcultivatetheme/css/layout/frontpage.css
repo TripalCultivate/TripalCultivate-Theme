@@ -101,3 +101,37 @@
 .tripalcultivate-theme-tile-bgcolor {
   background-color: var(--color--primary-50);
 }
+
+.tripalcultivate-theme-tile-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Link in tiles */
+.tripalcultivate-theme-tiles-large-half span {
+  color: #FFFFFF;
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 300;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 30px 0 0 0;
+  position: relative;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.tripalcultivate-theme-tiles-large-half span::after {
+  content: '\2192';
+  font-size: 1.7em;
+  padding-left: 5px;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+/* Image placement in tiles */
+/* Fill container */
+.tripalcultivate-theme-tiles-large-half {
+  background-size: cover;
+  background-position: center;
+}
