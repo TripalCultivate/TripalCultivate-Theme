@@ -1,0 +1,61 @@
+/**
+ * @file
+ * Content slider in large half tile.
+ */
+
+:root {
+  /* Primary colour of theme with 40% opacity */
+  --color--primary-transparent: hsla(var(--color--primary-hue), var(--color--primary-saturation), calc(1% * (var(--color--primary-lightness) - (0.36 * var(--color--primary-lightness)))), 0.4);
+}
+
+.tripalcultivate-theme-tiles-slider-slide-item {
+  height: var(--tile-height); 
+  width: 100%; 
+}
+
+.tripalcultivate-theme-tiles-slider-slide-item a {
+  text-decoration: none;
+}
+
+/* Slider item title and link */
+.tripalcultivate-theme-tiles-slider-slide-item div {
+  background: var(--color--primary-transparent);
+  color: #FFFFFF;
+  font-size: calc(var(--font-size-base) * 2);
+  line-height: 0.9;
+  position: relative;
+  padding: 15px;
+  margin: 0;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  width: 70%;
+}
+
+/* Slider controls */
+
+/* On load controls are disabled. */
+.tripalcultivate-theme-tiles-slider-bullets {
+  box-sizing: border-box;
+  background: var(--color--primary-transparent);
+  border-radius: 50px;
+  display: flex;
+  left: 15px;
+  position: absolute;
+  padding: 10px;
+  top: 80%;
+  z-index: 1000;
+}
+
+.tripalcultivate-theme-tiles-slider-bullets div {
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-radius: 100%;
+  height: 8px;
+  margin: 0 3px;
+  width: 8px;
+}
+
+.tripalcultivate-theme-tiles-slider-bullets div:hover, 
+div.tripalcultivate-theme-tiles-slider-bullets-active {
+  background-color: var(--color--primary-30);
+  border: 1px solid var(--color--gray-45);
+}
