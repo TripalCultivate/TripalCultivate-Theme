@@ -1,0 +1,6 @@
+trpcultivatetheme-color-picker:
+  version: VERSION
+  js:
+    js/color-picker.js: {}
+  dependencies:
+    - core/jquery
