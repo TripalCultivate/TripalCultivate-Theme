@@ -111,20 +111,50 @@
   text-decoration: none;
 }
 
-
-
-/* Standard tile top */
-
-.tripalcultivate-theme-tiles-standard-top span {
+/* Link in tiles */
+.tripalcultivate-theme-tiles-standard-top span,
+.tripalcultivate-theme-tiles-standard-bottom span {
   color: #FFFFFF;
   display: block;
+  font-size: var(--font-size-xs);
   font-weight: 300;
-
-
-  
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 30px 0 0 0;
   position: relative;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
   text-decoration: none;
+}
+
+.tripalcultivate-theme-tiles-standard-top span:after,
+.tripalcultivate-theme-tiles-standard-bottom span:after {
+  content: '\2192';
+  font-size: 1.7em;
+  padding-left: 5px;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+/* Image placement in tiles */
+/* Float top right hand corner */
+.tripalcultivate-theme-tiles-standard-top,
+.tripalcultivate-theme-tiles-standard-bottom {
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+/* Standard Tile */
+.tripalcultivate-theme-tiles-standard-top span,
+.tripalcultivate-theme-tiles-standard-bottom span {
+  bottom: 10%;
+  font-size: var(--font-size-l);
+  left: 10%;
+  margin: 0;
+  position: absolute;
+}
+
+/* Set the height of the container element inserted by base theme */
+.tripalcultivate-theme-tiles-half-standard div > div {
+  height: calc((var(--tile-two-thirds) * 0.5) - (var(--tile-margin-width) * 0.5));
 }
