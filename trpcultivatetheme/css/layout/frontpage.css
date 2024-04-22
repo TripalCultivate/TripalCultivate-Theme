@@ -113,7 +113,8 @@
 
 /* Link in tiles */
 .tripalcultivate-theme-tiles-banner-tall span, 
-.tripalcultivate-theme-tiles-banner-wide span {
+.tripalcultivate-theme-tiles-banner-wide span,
+.tripalcultivate-theme-tiles-large-half span {
   color: #FFFFFF;
   display: block;
   font-size: var(--font-size-xs);
@@ -126,7 +127,8 @@
 }
 
 .tripalcultivate-theme-tiles-banner-tall span:after,
-.tripalcultivate-theme-tiles-banner-wide span:after {
+.tripalcultivate-theme-tiles-banner-wide span:after,
+.tripalcultivate-theme-tiles-large-half span::after {
   content: '\2192';
   font-size: 1.7em;
   padding-left: 5px;
@@ -176,4 +178,11 @@
 
 .tripalcultivate-theme-tiles-half-one-third-row div > div {
   height: calc(var(--tile-one-third) - var(--tile-margin-width));
+}
+
+/* Fill container */
+.tripalcultivate-theme-tiles-large-half {
+  background-size: cover;
+  background-position: center;
+
 }
