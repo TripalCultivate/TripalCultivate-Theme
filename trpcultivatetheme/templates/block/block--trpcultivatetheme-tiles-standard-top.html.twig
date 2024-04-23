@@ -33,7 +33,10 @@
  *
  * <div>
  *   <a> 
- *     <span>
+ *      <div>
+ *        Tile icon image.
+ *      </div> 
+ *      <span>
  *        Link
  *      </span>
  *   </a> 
@@ -47,8 +50,12 @@
 
   <!-- Base theme will append additional markup to this area //-->
 
-  <div class="tripalcultivate-theme-tiles-standard-top" style="background-image: url('{{ file_url }}'); background-color: {{ trpcultivatetheme_tiles_standard_top.bgcolor.hex }}">    
+  <div class="tripalcultivate-theme-tiles-standard-top" style="background-color: {{ trpcultivatetheme_tiles_standard_top.bgcolor.hex }}">    
     <a href="{{ trpcultivatetheme_tiles_standard_top.link.url }}" title="{{ trpcultivatetheme_tiles_standard_top.title}}" target="_self">
+      {% if file_url %}
+        <div><img src="{{ file_url }}" /></div>
+      {% endif %}
+      
       <span>
         {{ trpcultivatetheme_tiles_standard_top.link.text }}
       </span>
