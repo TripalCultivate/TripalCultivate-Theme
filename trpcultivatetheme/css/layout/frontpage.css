@@ -112,9 +112,11 @@
 }
 
 /* Link in tiles */
+.tripalcultivate-theme-tiles-large-half span,
+.tripalcultivate-theme-tiles-banner-tall span, 
+.tripalcultivate-theme-tiles-banner-wide span,
 .tripalcultivate-theme-tiles-standard-top span,
-.tripalcultivate-theme-tiles-standard-bottom span,
-.tripalcultivate-theme-tiles-large-half span {
+.tripalcultivate-theme-tiles-standard-bottom span {
   color: #FFFFFF;
   display: block;
   font-size: var(--font-size-xs);
@@ -126,9 +128,11 @@
   text-decoration: none;
 }
 
+.tripalcultivate-theme-tiles-large-half span::after,
+.tripalcultivate-theme-tiles-banner-tall span:after,
+.tripalcultivate-theme-tiles-banner-wide span:after,
 .tripalcultivate-theme-tiles-standard-top span:after,
-.tripalcultivate-theme-tiles-standard-bottom span:after,
-.tripalcultivate-theme-tiles-large-half span::after {
+.tripalcultivate-theme-tiles-standard-bottom span:after {
   content: '\2192';
   font-size: 1.7em;
   padding-left: 5px;
@@ -138,6 +142,26 @@
 }
 
 /* Image placement in tiles */
+/* Fill container */
+.tripalcultivate-theme-tiles-large-half {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Bottom half */
+.tripalcultivate-theme-tiles-banner-tall {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+/* Bottom left half */
+.tripalcultivate-theme-tiles-banner-wide {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
 /* Float top right hand corner */
 .tripalcultivate-theme-tiles-standard-top div,
 .tripalcultivate-theme-tiles-standard-bottom div {
@@ -155,6 +179,25 @@
   margin-left: auto;
 }
 
+/* Banner styles */
+.tripalcultivate-theme-tiles-banner-tall div,
+.tripalcultivate-theme-tiles-banner-wide div {
+  color: #FFFFFF;
+  font-size: calc(var(--font-size-base) * 1.2);
+  line-height: 0.9;
+  position: relative;
+  padding: 15px;
+  margin: 0;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  position: absolute;
+  right: 2%;
+}
+
+.tripalcultivate-theme-tiles-banner-tall div {
+  width: 100%;
+}
+
 /* Standard Tile */
 .tripalcultivate-theme-tiles-standard-top span,
 .tripalcultivate-theme-tiles-standard-bottom span {
@@ -170,8 +213,11 @@
   height: calc((var(--tile-two-thirds) * 0.5) - (var(--tile-margin-width) * 0.5));
 }
 
-/* Fill container */
-.tripalcultivate-theme-tiles-large-half {
-  background-size: cover;
-  background-position: center;
+.tripalcultivate-theme-tiles-half-two-halves-column:first-child div > div {
+  height: calc(var(--tile-two-thirds) + var(--tile-margin-width));  
 }
+
+.tripalcultivate-theme-tiles-half-one-third-row div > div {
+  height: calc(var(--tile-one-third) - var(--tile-margin-width));
+}
+
