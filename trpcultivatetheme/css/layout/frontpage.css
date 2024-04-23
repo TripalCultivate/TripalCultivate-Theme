@@ -147,7 +147,7 @@
 
 /* Bottom half */
 .tripalcultivate-theme-tiles-banner-tall {
-  background-size: auto;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
 }
