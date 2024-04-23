@@ -2,6 +2,9 @@
 global:
   js:
     js/trpcultivatetheme.js: {}
+    js/trpcultivatetheme-slider.js: {}
+  dependencies:
+    - core/jquery
   css:
     base:
       css/base/elements.css: {}
@@ -18,6 +21,7 @@ global:
       css/component/table.css: {}
       css/component/tabs.css: {}
       css/component/buttons.css: {}
+      css/component/slider.css: {}
     layout:
       css/layout/layout.css: {}
     theme:
