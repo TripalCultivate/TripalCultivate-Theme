@@ -140,7 +140,7 @@
 /* Image placement in tiles */
 /* Bottom left half */
 .tripalcultivate-theme-tiles-banner-wide {
-  background-size: auto;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom left;
 }
