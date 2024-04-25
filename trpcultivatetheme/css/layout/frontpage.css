@@ -184,5 +184,24 @@
 .tripalcultivate-theme-tiles-large-half {
   background-size: cover;
   background-position: center;
+}
 
+/* Main Content */
+.tripalcultivate-theme-horizontal-rule {
+  border-top: 15px solid var(--color--primary-50);
+  margin: 40px 0;
+  width: 100%; 
+}
+
+.tripalcultivate-theme-content-header {
+  background-color: #FFFFFF;
+  color: var(--color--primary-50);
+  display: block;
+  font-size: calc(var(--font-size-base) * 2);
+  margin: 0;
+  padding: 0 10px 0 0;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+  top: -14px;
 }

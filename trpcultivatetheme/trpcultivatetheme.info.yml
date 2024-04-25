@@ -31,3 +31,5 @@ regions:
   trpcultivatetheme_tiles_banner_wide:     Tripal Cultivate Theme Tiles - Banner Style Wide
   trpcultivatetheme_tiles_standard_top:    Tripal Cultivate Theme Tiles - Standard Top
   trpcultivatetheme_tiles_standard_bottom: Tripal Cultivate Theme Tiles - Standard Bottom
+  # Front page content section.
+  trpcultivatetheme_contents_main:  Tripal Cultivate Theme Content - Main Content Section
