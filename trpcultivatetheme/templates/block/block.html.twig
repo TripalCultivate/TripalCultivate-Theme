@@ -53,7 +53,10 @@
 <div{{ attributes.addClass(classes) }} style="display: {{ is_large_half_tile }}">
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes.addClass('block__title') }}>{{ label }}</h2>
+    {# Do not render label/title when region is content as the override template has it in another style. #}
+    {% if content_region != 'trpcultivatetheme_contents_main' %}  
+      <h2{{ title_attributes.addClass('block__title') }}>{{ label }}</h2>
+    {% endif %}
   {% endif %}
   {{ title_suffix }}
   {% block content %}
