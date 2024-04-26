@@ -29,7 +29,7 @@
  *
  * Margins at 10px applied to right and bottom sides.
  * Elements to the right and bottom will account for
- * additional value to width or height caused by 
+ * additional value to width or height caused by
  * applying the margins.
  */
 :root {
@@ -91,10 +91,10 @@
   width: 100%;
 }
 .tripalcultivate-theme-tile-margin-right {
-  margin-right: var(--tile-margin-width);    
+  margin-right: var(--tile-margin-width);
 }
 .tripalcultivate-theme-tile-margin-bottom {
-  margin-bottom: var(--tile-margin-width);    
+  margin-bottom: var(--tile-margin-width);
 }
 
 /* Default background color of tiles - matches the color scheme of base theme. */
@@ -113,7 +113,7 @@
 
 /* Link in tiles */
 .tripalcultivate-theme-tiles-large-half span,
-.tripalcultivate-theme-tiles-banner-tall span, 
+.tripalcultivate-theme-tiles-banner-tall span,
 .tripalcultivate-theme-tiles-banner-wide span,
 .tripalcultivate-theme-tiles-standard-top span,
 .tripalcultivate-theme-tiles-standard-bottom span {
@@ -214,24 +214,18 @@
 }
 
 .tripalcultivate-theme-tiles-half-two-halves-column:first-child div > div {
-  height: calc(var(--tile-two-thirds) + var(--tile-margin-width));  
+  height: calc(var(--tile-two-thirds) + var(--tile-margin-width));
 }
 
 .tripalcultivate-theme-tiles-half-one-third-row div > div {
   height: calc(var(--tile-one-third) - var(--tile-margin-width));
 }
 
-/* Fill container */
-.tripalcultivate-theme-tiles-large-half {
-  background-size: cover;
-  background-position: center;
-}
-
 /* Main Content */
 .tripalcultivate-theme-horizontal-rule {
   border-top: 15px solid var(--color--primary-50);
   margin: 40px 0;
-  width: 100%; 
+  width: 100%;
 }
 
 .tripalcultivate-theme-content-header {
