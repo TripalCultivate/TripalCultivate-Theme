@@ -112,9 +112,11 @@
 }
 
 /* Link in tiles */
+.tripalcultivate-theme-tiles-large-half span,
 .tripalcultivate-theme-tiles-banner-tall span, 
 .tripalcultivate-theme-tiles-banner-wide span,
-.tripalcultivate-theme-tiles-large-half span {
+.tripalcultivate-theme-tiles-standard-top span,
+.tripalcultivate-theme-tiles-standard-bottom span {
   color: #FFFFFF;
   display: block;
   font-size: var(--font-size-xs);
@@ -126,9 +128,11 @@
   text-decoration: none;
 }
 
+.tripalcultivate-theme-tiles-large-half span::after,
 .tripalcultivate-theme-tiles-banner-tall span:after,
 .tripalcultivate-theme-tiles-banner-wide span:after,
-.tripalcultivate-theme-tiles-large-half span::after {
+.tripalcultivate-theme-tiles-standard-top span:after,
+.tripalcultivate-theme-tiles-standard-bottom span:after {
   content: '\2192';
   font-size: 1.7em;
   padding-left: 5px;
@@ -138,11 +142,10 @@
 }
 
 /* Image placement in tiles */
-/* Bottom left half */
-.tripalcultivate-theme-tiles-banner-wide {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom left;
+/* Fill container */
+.tripalcultivate-theme-tiles-large-half {
+  background-size: cover;
+  background-position: center;
 }
 
 /* Bottom half */
@@ -150,6 +153,30 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
+}
+
+/* Bottom left half */
+.tripalcultivate-theme-tiles-banner-wide {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+/* Float top right hand corner */
+.tripalcultivate-theme-tiles-standard-top div,
+.tripalcultivate-theme-tiles-standard-bottom div {
+  height: 80px;
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  text-align: right;
+  width: 90px;
+}
+
+.tripalcultivate-theme-tiles-standard-top div img,
+.tripalcultivate-theme-tiles-standard-bottom div img {
+  display: block;
+  margin-left: auto;
 }
 
 /* Banner styles */
@@ -171,7 +198,21 @@
   width: 100%;
 }
 
-/* Set the height container element inserted by base theme */
+/* Standard Tile */
+.tripalcultivate-theme-tiles-standard-top span,
+.tripalcultivate-theme-tiles-standard-bottom span {
+  bottom: 10%;
+  font-size: var(--font-size-l);
+  left: 10%;
+  margin: 0;
+  position: absolute;
+}
+
+/* Set the height of the container element inserted by base theme */
+.tripalcultivate-theme-tiles-half-standard div > div {
+  height: calc((var(--tile-two-thirds) * 0.5) - (var(--tile-margin-width) * 0.5));
+}
+
 .tripalcultivate-theme-tiles-half-two-halves-column:first-child div > div {
   height: calc(var(--tile-two-thirds) + var(--tile-margin-width));  
 }
