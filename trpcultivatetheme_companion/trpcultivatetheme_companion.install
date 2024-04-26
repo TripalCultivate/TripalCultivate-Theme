@@ -83,6 +83,7 @@ function trpcultivatetheme_companion_install() {
         'description' => 'This block content type is used to insert content into main content section'
       ],
       'fieldset' => [
+        // LEFT Article.
         'trpcultivatetheme_content_title1' => [
           'label' => 'Left Article: Title Text',
           'weight' => 0,
@@ -94,6 +95,45 @@ function trpcultivatetheme_companion_install() {
           'settings' => [
             'placeholder' => 'eg. KnowPulse: A Web-Resource Focused on Diversity Data for Pulse Crop Improvement',
             'max_length' => 255
+          ]
+        ],
+        'trpcultivatetheme_content_text1' => [
+          'label' => 'Left Article: Summary Text',
+          'weight' => 1,
+          'type' => [
+            'storage' => 'text_long',
+            'display' => 'text_default',
+            'form' => 'text_textarea'
+          ],
+          'settings' => [
+            'rows' => 5
+          ]
+        ],
+
+        // RIGHT Article.
+        'trpcultivatetheme_content_title2' => [
+          'label' => 'Right Article: Title Text',
+          'weight' => 2,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. KnowPulse: A Web-Resource Focused on Diversity Data for Pulse Crop Improvement',
+            'max_length' => 255
+          ]
+        ],
+        'trpcultivatetheme_content_text2' => [
+          'label' => 'Right Article: Summary Text',
+          'weight' => 3,
+          'type' => [
+            'storage' => 'text_long',
+            'display' => 'text_default',
+            'form' => 'text_textarea'
+          ],
+          'settings' => [
+            'rows' => 5
           ]
         ],
       ],
@@ -125,11 +165,11 @@ function trpcultivatetheme_companion_install() {
       
       // Create block form display configuration.
       // @see admin/structure/block-content - Manage Form tab.
-      $tile_block_form_config = EntityFormDisplay::create($block_type); 
+      $block_form_config = EntityFormDisplay::create($block_type); 
 
       // Create block type display configuration.
       // @see admin/structure/block-content - Manage Display tab.
-      $tile_block_display_config = EntityViewDisplay::create($block_type);
+      $block_display_config = EntityViewDisplay::create($block_type);
       
       foreach($schema['fieldset'] as $field_name => $field_prop) {
         // Create storage.
@@ -160,16 +200,16 @@ function trpcultivatetheme_companion_install() {
 
         // Form:
         $field_setting['type'] = $field_prop['type']['form'];
-        $tile_block_form_config->setComponent($field_name, $field_setting)
+        $block_form_config->setComponent($field_name, $field_setting)
           ->save();
 
         // Display:
         $field_setting['type'] = $field_prop['type']['display'];
-        $tile_block_display_config->setComponent($field_name, $field_setting)
+        $block_display_config->setComponent($field_name, $field_setting)
           ->save();
-
-        unset($tile_block_form_config, $tile_block_display_config);
       }
+
+      unset($block_form_config, $block_display_config);
     }
   }
 }
