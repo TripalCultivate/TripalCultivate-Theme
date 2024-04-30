@@ -99,7 +99,7 @@ function trpcultivatetheme_preprocess_block(&$variables) {
         'title' => 'text',     // Tile title: text value.
         'link'  => 'link',     // Tile link: url + link text object.
         'coverimg' => 'image', // Tile cover image: image object.,
-        'bgcolor'  => 'color',  // Tile background color: text/string value.
+        'bgcolor'  => 'color', // Tile background color: text/string value.
       ];
 
       foreach($fields as $field_name => $field_type) {
