@@ -178,7 +178,15 @@
             <div id="tripalcultivate-theme-contents">
               {# Main Content Region #}
               {{ page.trpcultivatetheme_contents_main }}
-            </div>  
+            </div>
+
+            <div id="tripalcultivate-theme-funders">
+              {# Funders Region #}
+              {% if page.trpcultivatetheme_contents_funders is iterable %}
+                <h4>This project is made possible by the invaluable support of our funders</h4>
+                {{ page.trpcultivatetheme_contents_funders }}
+              {% endif %}
+            </div>              
           </div>
         </div>
         <div class="social-bar">
