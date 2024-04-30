@@ -140,7 +140,7 @@ function trpcultivatetheme_companion_install() {
     ],
 
     // FUNDER LOGO:
-    'trpcultivatetheme_content_block' => [
+    'trpcultivatetheme_funder_block' => [
       'block' => [
         'label' => 'Tripal Cultivate Theme Funder Content Block',
         'description' => 'This block content type is used to insert a funder into funders section'
