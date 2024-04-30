@@ -240,3 +240,18 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
   top: -14px;
 }
+
+.tripalcultivate-theme-content-articles .tripalcultivate-theme-tiles-half-column {
+  width: 48%;
+}
+
+.tripalcultivate-theme-content-articles article h4 {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.tripalcultivate-theme-content-articles article p {
+  margin-top: 5px;
+  font-size: calc(var(--font-size-base) * 1.2);
+  line-height: 1.5em;
+}
