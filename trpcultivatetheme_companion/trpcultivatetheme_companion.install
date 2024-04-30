@@ -76,11 +76,11 @@ function trpcultivatetheme_companion_install() {
       ],
     ],
 
-    // MAIN CONTENT:
-    'trpcultivatetheme_content_block' => [
+    // ARTICLE 2X - SIDE-BY-SIDE:
+    'trpcultivatetheme_art2x_block' => [
       'block' => [
-        'label' => 'Tripal Cultivate Theme Main Content Block',
-        'description' => 'This block content type is used to insert content into main content section'
+        'label' => 'Tripal Cultivate Theme Side-by-Side Article',
+        'description' => 'This block content type is used to insert 2 articles laid out side-by-side into the main content section'
       ],
       'fieldset' => [
         // LEFT Article.
