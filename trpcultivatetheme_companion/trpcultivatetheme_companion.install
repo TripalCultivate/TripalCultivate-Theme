@@ -138,6 +138,39 @@ function trpcultivatetheme_companion_install() {
         ],
       ],
     ],
+
+    // FUNDER LOGO:
+    'trpcultivatetheme_funder_block' => [
+      'block' => [
+        'label' => 'Tripal Cultivate Theme Funder Content Block',
+        'description' => 'This block content type is used to insert a funder into funders section'
+      ],
+      'fieldset' => [
+        'trpcultivatetheme_funders_logo' => [
+          'label' => 'Funder Logo (JPG, GIF, WEBP or PNG)',
+          'weight' => 0,
+          'type' => [
+            'storage' => 'image',
+            'display' => 'file_uri',
+            'form' => 'image_image'
+          ],
+          'settings' => ['file_extensions' => 'jpg jpeg gif webp png'] 
+        ],
+        'trpcultivatetheme_funders_link' => [
+          'label' => 'Funder Homepage',
+          'weight' => 1,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. https://knowpulse.usask.ca',
+            'max_length' => 255
+          ]
+        ]
+      ],
+    ],
   ];
   
   // Create content block.
