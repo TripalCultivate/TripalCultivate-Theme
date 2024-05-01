@@ -257,6 +257,10 @@
 }
 
 /* Funders */
+#tripalcultivate-theme-funders {
+  text-align: center;
+}
+
 #tripalcultivate-theme-funders > div {
   display: flex;
   flex-wrap: wrap;
@@ -272,4 +276,17 @@
 #tripalcultivate-theme-funders > div div {
   flex: 1 0 auto;
   margin: var(--tile-margin-width);
+  padding: 0;
+}
+
+.tripalcultivate-theme-content-funder {
+  height: 60px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.tripalcultivate-theme-content-funder img {
+  width: 90%;
+  height: 100%;
+  object-fit:contain;
 }
