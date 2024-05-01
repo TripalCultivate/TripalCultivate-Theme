@@ -240,3 +240,10 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
   top: -14px;
 }
+
+/* Footer */
+.tripalcultivate-theme-footer-line {
+  background-color: var(--color--primary-50);
+  height: 20px;
+  width: 100%;
+}
