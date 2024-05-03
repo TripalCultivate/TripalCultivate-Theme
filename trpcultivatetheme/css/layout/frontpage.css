@@ -222,11 +222,6 @@
 }
 
 /* Main Content */
-#tripalcultivate-theme-contents {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
 .tripalcultivate-theme-horizontal-rule {
   border-top: 15px solid var(--color--primary-50);
   margin: 40px 0;
