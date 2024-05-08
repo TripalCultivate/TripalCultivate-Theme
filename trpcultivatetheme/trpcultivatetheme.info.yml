@@ -33,3 +33,5 @@ regions:
   trpcultivatetheme_tiles_standard_bottom: Tripal Cultivate Theme Tiles - Standard Bottom
   # Front page content section.
   trpcultivatetheme_contents_main:  Tripal Cultivate Theme Content - Main Content Section
+  # Front page content funders section.
+  trpcultivatetheme_contents_funders: Tripal Cultivate Theme Content - Funders Section

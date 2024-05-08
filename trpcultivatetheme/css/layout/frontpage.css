@@ -241,6 +241,56 @@
   top: -14px;
 }
 
+.tripalcultivate-theme-content-articles .tripalcultivate-theme-tiles-half-column {
+  width: 48%;
+}
+
+.tripalcultivate-theme-content-articles article h4 {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.tripalcultivate-theme-content-articles article p {
+  margin-top: 5px;
+  font-size: calc(var(--font-size-base) * 1.2);
+  line-height: 1.5em;
+}
+
+/* Funders */
+#tripalcultivate-theme-funders {
+  text-align: center;
+}
+
+#tripalcultivate-theme-funders > div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 0 0;
+}
+
+#tripalcultivate-theme-funders h4 {
+  color: #C0C0C0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#tripalcultivate-theme-funders > div div {
+  flex: 1 0 auto;
+  margin: var(--tile-margin-width);
+  padding: 0;
+}
+
+.tripalcultivate-theme-content-funder {
+  height: 125px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.tripalcultivate-theme-content-funder img {
+  width: 90%;
+  height: 100%;
+  object-fit:contain;
+}
+
 /* Footer */
 .tripalcultivate-theme-footer-line {
   background-color: var(--color--primary-50);

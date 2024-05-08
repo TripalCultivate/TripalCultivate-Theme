@@ -22,6 +22,26 @@
  *   </h3> 
  *   
  *   <div>
+ *     Theme content:
+ *     <div>
+ *       <div>
+ *         Article/content left.
+ *         <article>
+ *           <h4>Title</h4>
+ *           <p>Summary text</p>
+ *         </article>
+ *       </div>
+ *        
+ *       <div>
+ *         Article/content right.
+ *         <article>
+ *           <h4>Title</h4>
+ *           <p>Summary text</p>
+ *         </article>
+ *       </div>
+ *     </div>
+ *
+ *     Other content:
  *     Content/article
  *   </div>
  * </div>
@@ -36,7 +56,25 @@
     </h3>
     
     <div>
-      {{ content }} 
+      {# If content has left and right article/text, theme content, otherwise load content. #}
+      {% if content.trpcultivatetheme_content_title1 and content.trpcultivatetheme_content_title1 %}
+        <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-content-articles">
+          <div class="tripalcultivate-theme-tiles-half-column">
+            <article>  
+              <h4>{{ content.trpcultivatetheme_content_title1 }}</h4>
+              <p>{{ content.trpcultivatetheme_content_text1 }}</p>
+            </article> 
+          </div>
+          <div class="tripalcultivate-theme-tiles-half-column">
+            <article>
+              <h4>{{ content.trpcultivatetheme_content_title2 }}</h4>
+              <p>{{ content.trpcultivatetheme_content_text2 }}</p>
+            </article>
+          </div>
+        </div>
+      {% else %}
+        {{ content }}
+      {% endif %}
     </div>
   </div>
 {% endblock %}

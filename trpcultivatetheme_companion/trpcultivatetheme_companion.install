@@ -16,145 +16,233 @@ use Drupal\field\Entity\FieldConfig;
  * Create block content type and fields used by the tile layout in the theme companion.
  */
 function trpcultivatetheme_companion_install() {
-  // All content assets (field and storage) go into this bundle.
-  $tile_content = 'trpcultivatetheme_tile_block';
-
-  // Tile field schema.
-  // Field name length cannot be more than 32 chars (prefix is 23 chars).
-  // Field types: drupal.org/docs/drupal-apis/entity-api/fieldtypes-fieldwidgets-and-fieldformatters
-  $field_prefix = 'trpcultivatetheme_tile_';
-  $tile_fields = [
-    // Tile title text.
-    $field_prefix . 'title' => [
-      'label' => 'Tile Title Text',
-      'weight' => 0,
-      'type' => [
-        'storage' => 'string',
-        'display' => 'basic_string',
-        'form' => 'string_textarea'
+  $content_schema = [
+    // TILES:
+    'trpcultivatetheme_tile_block' => [
+      'block' => [
+        'label' => 'Tripal Cultivate Theme Tile Block',
+        'description' => 'This block content type is used to insert content into tiles'
       ],
-      'settings' => [
-        'placeholder' => 'eg. New Bioinformatics Tools Launch',
-        'max_length' => 255
-      ] 
-    ],
-    
-    // Tile link (url) and text combo.
-    $field_prefix . 'link' => [
-      'label' => 'Tile Link (URL)',
-      'weight' => 1,
-      'type' => [
-        'storage' => 'link',
-        'display' => 'uri_link', 
-        'form' => 'link_default'
+      'fieldset' => [
+        'trpcultivatetheme_tile_title'    => [
+          'label' => 'Tile Title Text',
+          'weight' => 0,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. New Bioinformatics Tools Launch',
+            'max_length' => 255
+          ]
+        ],
+        'trpcultivatetheme_tile_link'     => [
+          'label' => 'Tile Link (URL)',
+          'weight' => 1,
+          'type' => [
+            'storage' => 'link',
+            'display' => 'uri_link', 
+            'form' => 'link_default'
+          ],
+          'settings' => [
+            'link_type' => 'url',
+            'protocols' => ['http', 'https']
+          ] 
+        ],
+        'trpcultivatetheme_tile_coverimg' => [
+          'label' => 'Tile Cover Image (JPG, GIF, WEBP or PNG)',
+          'weight' => 2,
+          'type' => [
+            'storage' => 'image',
+            'display' => 'file_uri',
+            'form' => 'image_image'
+          ],
+          'settings' => ['file_extensions' => 'jpg jpeg gif webp png']  
+        ],
+        'trpcultivatetheme_tile_bgcolor'  => [
+          'label' => 'Tile Background Colour',
+          'weight' => 3,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. #000000 for black',
+            'max_length' => 7
+          ] 
+        ],
       ],
-      'settings' => [
-        'link_type' => 'url',
-        'protocols' => ['http', 'https']
-      ] 
-    ],
-
-    // Tile cover image.
-    $field_prefix . 'coverimg' => [
-      'label' => 'Tile Cover Image (JPG, GIF, WEBP or PNG)',
-      'weight' => 2,
-      'type' => [
-        'storage' => 'image',
-        'display' => 'file_uri',
-        'form' => 'image_image'
-      ],
-      'settings' => ['file_extensions' => 'jpg jpeg gif webp png']
-    ],
-
-    // Tile background colour.
-    $field_prefix . 'bgcolor' => [
-      'label' => 'Tile Background Colour',
-      'weight' => 3,
-      'type' => [
-        'storage' => 'string',
-        'display' => 'basic_string',
-        'form' => 'string_textarea'
-      ],
-      'settings' => [
-        'placeholder' => 'eg. #000000 for black',
-        'max_length' => 7
-      ]
     ],
 
-    // Additional fields here.
-    // NOTE the field name character limit.
+    // ARTICLE 2X - SIDE-BY-SIDE:
+    'trpcultivatetheme_art2x_block' => [
+      'block' => [
+        'label' => 'Tripal Cultivate Theme Side-by-Side Article',
+        'description' => 'This block content type is used to insert 2 articles laid out side-by-side into the main content section'
+      ],
+      'fieldset' => [
+        // LEFT Article.
+        'trpcultivatetheme_content_title1' => [
+          'label' => 'Left Article: Title Text',
+          'weight' => 0,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. KnowPulse: A Web-Resource Focused on Diversity Data for Pulse Crop Improvement',
+            'max_length' => 255
+          ]
+        ],
+        'trpcultivatetheme_content_text1' => [
+          'label' => 'Left Article: Summary Text',
+          'weight' => 1,
+          'type' => [
+            'storage' => 'text_long',
+            'display' => 'text_default',
+            'form' => 'text_textarea'
+          ],
+          'settings' => [
+            'rows' => 5
+          ]
+        ],
+
+        // RIGHT Article.
+        'trpcultivatetheme_content_title2' => [
+          'label' => 'Right Article: Title Text',
+          'weight' => 2,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. KnowPulse: A Web-Resource Focused on Diversity Data for Pulse Crop Improvement',
+            'max_length' => 255
+          ]
+        ],
+        'trpcultivatetheme_content_text2' => [
+          'label' => 'Right Article: Summary Text',
+          'weight' => 3,
+          'type' => [
+            'storage' => 'text_long',
+            'display' => 'text_default',
+            'form' => 'text_textarea'
+          ],
+          'settings' => [
+            'rows' => 5
+          ]
+        ],
+      ],
+    ],
+
+    // FUNDER LOGO:
+    'trpcultivatetheme_funder_block' => [
+      'block' => [
+        'label' => 'Tripal Cultivate Theme Funder Content Block',
+        'description' => 'This block content type is used to insert a funder into funders section'
+      ],
+      'fieldset' => [
+        'trpcultivatetheme_funders_logo' => [
+          'label' => 'Funder Logo (JPG, GIF, WEBP or PNG)',
+          'weight' => 0,
+          'type' => [
+            'storage' => 'image',
+            'display' => 'file_uri',
+            'form' => 'image_image'
+          ],
+          'settings' => ['file_extensions' => 'jpg jpeg gif webp png'] 
+        ],
+        'trpcultivatetheme_funders_link' => [
+          'label' => 'Funder Homepage',
+          'weight' => 1,
+          'type' => [
+            'storage' => 'string',
+            'display' => 'basic_string',
+            'form' => 'string_textarea'
+          ],
+          'settings' => [
+            'placeholder' => 'eg. https://knowpulse.usask.ca',
+            'max_length' => 255
+          ]
+        ]
+      ],
+    ],
   ];
   
+  // Create content block.
+  foreach ($content_schema as $bundle => $schema) {
+    // All content assets (field and storage) go into this bundle.
+    // Prepare storage, containers and configuration for the field.
 
-  // Prepare storage, containers and configuration for the field.
-
-  // Ensure that block type does not exists.
-  $block_exists = BlockContentType::load($tile_content);
-
-  if (!$block_exists) {
-    // Create the block type.
-    // @see admin/structure/block-content.
-    $tile_block = [
-      'id' => $tile_content,
-      'label' => 'Tripal Cultivate Theme Tile Block',
-      'description' => 'This block content type is used to insert content into tiles'
-    ];
-
-    BlockContentType::create($tile_block)
-      ->save();
-
-    $block_type = [
-      'targetEntityType' => 'block_content',
-      'bundle'  => $tile_content,
-      'status' => TRUE,
-      'mode'  => 'default',
-    ];
-
-    // Create block form display configuration.
-    // @see admin/structure/block-content - Manage Form tab.
-    $tile_block_form_config = EntityFormDisplay::create($block_type); 
-
-    // Create block type display configuration.
-    // @see admin/structure/block-content - Manage Display tab.
-    $tile_block_display_config = EntityViewDisplay::create($block_type);
+    // Ensure that block type does not exists.
+    $block_exists = BlockContentType::load($bundle);
     
-    
-    foreach($tile_fields as $field_name => $fieldprop) {
-      // Create storage.
-      FieldStorageConfig::create([
-        'field_name' => $field_name,
-        'entity_type' => 'block_content',
-        'type' => $fieldprop['type']['storage'],
-        'settings' => $fieldprop['settings']
-      ])
+    if (!$block_exists) {
+      // Create the block type.
+      // @see admin/structure/block-content.
+      $block = $schema['block'] + ['id' => $bundle]; 
+
+      BlockContentType::create($block)
         ->save();
 
-      // Attach to type.
-      FieldConfig::create([
-        'field_name' => $field_name,
-        'entity_type' => 'block_content',
-        'bundle' => $tile_content,
-        'label' => $fieldprop['label']
-      ])
-        ->save();
-
-      // Enable field.
-      $field_setting = [
-        'weight'  => $fieldprop['weight'],
-        'hidden' => FALSE,
-        'label' => 'hidden',
-        'settings' => $fieldprop['settings']
+      $block_type = [
+        'targetEntityType' => 'block_content',
+        'bundle'  => $bundle,
+        'status' => TRUE,
+        'mode'  => 'default',
       ];
+      
+      // Create block form display configuration.
+      // @see admin/structure/block-content - Manage Form tab.
+      $block_form_config = EntityFormDisplay::create($block_type); 
 
-      // Form:
-      $field_setting['type'] = $fieldprop['type']['form'];
-      $tile_block_form_config->setComponent($field_name, $field_setting)
-        ->save();
+      // Create block type display configuration.
+      // @see admin/structure/block-content - Manage Display tab.
+      $block_display_config = EntityViewDisplay::create($block_type);
+      
+      foreach($schema['fieldset'] as $field_name => $field_prop) {
+        // Create storage.
+        FieldStorageConfig::create([
+          'field_name' => $field_name,
+          'entity_type' => 'block_content',
+          'type' => $field_prop['type']['storage'],
+          'settings' => $field_prop['settings']
+        ])
+          ->save();
 
-      // Display:
-      $field_setting['type'] = $fieldprop['type']['display'];
-      $tile_block_display_config->setComponent($field_name, $field_setting)
-        ->save();
+        // Attach to type.
+        FieldConfig::create([
+          'field_name' => $field_name,
+          'entity_type' => 'block_content',
+          'bundle' => $bundle,
+          'label' => $field_prop['label']
+        ])
+          ->save();
+
+        // Enable field.
+        $field_setting = [
+          'weight'  => $field_prop['weight'],
+          'hidden' => FALSE,
+          'label' => 'hidden',
+          'settings' => $field_prop['settings']
+        ];
+
+        // Form:
+        $field_setting['type'] = $field_prop['type']['form'];
+        $block_form_config->setComponent($field_name, $field_setting)
+          ->save();
+
+        // Display:
+        $field_setting['type'] = $field_prop['type']['display'];
+        $block_display_config->setComponent($field_name, $field_setting)
+          ->save();
+      }
+
+      unset($block_form_config, $block_display_config);
     }
   }
 }

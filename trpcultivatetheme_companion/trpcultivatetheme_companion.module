@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @file:
+ * Provides hook implementations for Tripal Cultivate Theme.
+ */
+
 use \Drupal\block\Entity\Block;
 use Drupal\Core\Session\AccountInterface;
 
@@ -39,18 +45,24 @@ function trpcultivatetheme_companion_block_access(Block $block, $operation, Acco
   $regions = system_region_list($def_theme);
   
   // Extract only the trpcultivatetheme_tiles custom regions.
-  $trpcultivatetheme_tiles_regions = []; 
+  $trpcultivatetheme_regions = [];
   
+  // Watch for contents placed into tiles and funders regions.
   foreach($regions as $region_name => $_) {
-    if (preg_match('/^' . $def_theme . '_tiles/', $region_name)) {
-      array_push($trpcultivatetheme_tiles_regions, $region_name);
+    if (preg_match('/^' . $def_theme . '(_tiles|_contents_funders)/', $region_name)) {
+      array_push($trpcultivatetheme_regions, $region_name);
     }
-  } 
+  }
+
+  $region_to_content = [
+    'tiles' => 'trpcultivatetheme_tile_block',
+    'funders' => 'trpcultivatetheme_funder_block'
+  ];
   
   // The region the content is about to be placed.
   $block_region = $block->getRegion();
 
-  if ($block_region && in_array($block_region, $trpcultivatetheme_tiles_regions) && $operation == 'update') {
+  if ($block_region && in_array($block_region, $trpcultivatetheme_regions) && $operation == 'update') {
     // When updating a region by placing a content block into any of the tiles region.
     
     // The id of the content.
@@ -59,16 +71,28 @@ function trpcultivatetheme_companion_block_access(Block $block, $operation, Acco
     if ($block_id) {
       // @debug dpm($block);
 
-      // Tile content is a block content type and id is a hash value
-      // ie. block_content:58dad12f-a9e4-4305-a082-d370ae079137.
-      // @see hook_install().
-      // Content is block_content plus unique id number since multiple instance can be created.
-    
-      if (!preg_match('/^block_content:/', $block_id)) {  
-        // The content id does not match the tripalcultivatetheme tile content id format.
-        
-        $error_message = 'A non-compatible content was added to Tripal Cultivate Theme Tiles region. ';
-        $error_message .= 'BLOCK: '. ucwords(str_replace('_', ' ', $block_id)) . ' REGION: ' . ucwords(str_replace('_', ' ', $block_region));
+      // Ensure that only tile block contents get processed.
+      $block_dependencies = $block->getDependencies();
+      $is_not_compatible = FALSE;
+
+      // Tile block content has content key in block dependencies (#dependencies) object,
+      // test if block had content and if content was of type tile/funders block.
+      if (!isset($block_dependencies['content'])) {
+        // Has no content.
+        $is_not_compatible = TRUE;
+      }
+      
+      if (isset($block_dependencies['content'])) {
+        // Has content.
+        $block_check = str_contains($block_region, 'tiles') ? $region_to_content['tiles'] : $region_to_content['funders'];  
+        if (!preg_match('/' . $block_check . '/', $block_dependencies['content'][0])) {
+          $is_not_compatible = TRUE;
+        }
+      }
+
+      if ($is_not_compatible) {
+        $error_message = 'A non-compatible content was added to ' .  ucwords(str_replace('_', ' ', $block_region)) . ' region. ';
+        $error_message .= 'BLOCK: '. ucwords(str_replace('_', ' ', $block_id));
 
         // Logs an error
         \Drupal::logger('trpcultivatetheme_companion')

@@ -1,0 +1,24 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Tripal Cultivate Theme implementation for funders content.
+ *
+ * Available variables:
+ *
+ * Content layout:
+ */
+#}
+
+{% block content %}
+  {% set link = content.trpcultivatetheme_funders_link ? content.trpcultivatetheme_funders_link|render|striptags : '' %}
+  {% set logo = content.trpcultivatetheme_funders_logo['#items'].entity.uri.value ? file_url(content.trpcultivatetheme_funders_logo['#items'].entity.uri.value) : '' %}
+  
+  {% if link and logo %}
+  <div class="tripalcultivate-theme-content-funder">
+    <a href="{{ link }}" target="_blank">
+      <img src="{{ logo }}" />
+    </a>
+  </div>
+  {% endif %}
+{% endblock %}
