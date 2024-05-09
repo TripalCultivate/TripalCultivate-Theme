@@ -290,10 +290,3 @@
   height: 100%;
   object-fit:contain;
 }
-
-/* Footer */
-.tripalcultivate-theme-footer-line {
-  background-color: var(--color--primary-50);
-  height: 20px;
-  width: 100%;
-}
