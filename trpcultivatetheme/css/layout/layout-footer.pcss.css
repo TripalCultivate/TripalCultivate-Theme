@@ -19,7 +19,10 @@
 }
 
 .region--footer_top__inner,
-.region--footer_bottom__inner {
+.region--footer_bottom {
+
+  grid-column: 1 / 15;
+
   & > * {
     margin-block-end: var(--sp2);
 
