@@ -23,7 +23,9 @@
 %}
 
 {% if content %}
-  <div class="tripalcultivate-theme-footer-bottom">
-    {{ content }}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="region--{{ region }}__inner">
+      {{ content }}
+    </div>
   </div>
 {% endif %}
