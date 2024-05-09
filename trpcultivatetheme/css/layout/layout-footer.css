@@ -24,12 +24,6 @@
   padding-block: var(--sp2);
 }
 
-@media (min-width: 75rem) {
-  .site-footer__inner {
-    padding-block: var(--sp4) var(--sp13);
-  }
-}
-
 .region--footer_top__inner > *,
 .region--footer_bottom__inner > * {
   margin-block-end: var(--sp2);
