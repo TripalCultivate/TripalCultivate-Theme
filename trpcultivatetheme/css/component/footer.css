@@ -26,9 +26,10 @@
 .site-footer {
   position: relative; /* stack above left social bar */
   color: var(--color--gray-20);
-  background: linear-gradient(180deg, var(--color--gray-100) 0%, var(--color--gray-100) 100%);
+  background: linear-gradient(180deg, var(--color--gray-100) 0%, var(--color--gray-95) 100%);
   padding-left: var(--container-padding);
   padding-right: var(--sp5);
+  border-bottom: 1rem solid var(--color--primary-30);
 }
 
 .site-footer .menu {
