@@ -23,29 +23,33 @@
  */
 
 /**
- * Relative to document font size, the tile height
- * is 25 times the value. At 18px set value, tile
- * height is 450px tall.
+ * Tile Canvas is the entire section of the screen taken up by the tile grid.
+ * It uses viewpoint units to set it's dimentions for responsiveness.
+ * Where your visible browser window space is 1975px wide x 1140px high,
+ * the tile canvas will be 1580px (80%) x 684px (60%). Specifically,
+ * 1vh = 1% viewport height and 1vw = 1% viewport width.
  *
- * Margins at 10px applied to right and bottom sides.
+ * Margins at 1vh applied to right and bottom sides.
  * Elements to the right and bottom will account for
  * additional value to width or height caused by
  * applying the margins.
  */
 :root {
-  --tile-height-scaling-factor: 25;
-  --tile-margin-width: 10px;
+  --tile-canvas-height: 60vh;
+  --tile-canvas-width: 80vw;
 
-  --tile-height: calc(var(--tile-height-scaling-factor) * var(--sp));
-  --tile-half: calc(0.5 * var(--tile-height));
-  --tile-one-third: calc(0.3333 * var(--tile-height));
-  --tile-two-thirds: calc(0.6667 * var(--tile-height));
+  /** Original Variables */
+  --tile-height: var(--tile-canvas-height);
+  --tile-half: calc(0.5 * var(--tile-canvas-height));
+  --tile-one-third: calc(0.3333 * var(--tile-canvas-height));
+  --tile-two-thirds: calc(0.6667 * var(--tile-canvas-height));
+  --tile-margin-width: 1vh;
 }
 
 #tripalcultivate-theme-tiles {
   display: block;
-  height: var(--tile-height);
-  width: 100%;
+  height: var(--tile-canvas-height);
+  width: var(--tile-canvas-width);
   margin: 0;
   padding: 0;
   position: relative;
