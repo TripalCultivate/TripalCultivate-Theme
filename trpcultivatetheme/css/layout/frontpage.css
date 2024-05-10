@@ -44,12 +44,22 @@
   --tile-one-third: calc(0.3333 * var(--tile-canvas-height));
   --tile-two-thirds: calc(0.6667 * var(--tile-canvas-height));
   --tile-margin-width: 1vh;
+
+  /** Minimums */
+  --tile-canvas-height-min: 400px;
+  --tile-canvas-width-min: 900px;
+  --tile-height-min: var(--tile-canvas-height-min);
+  --tile-half-min: calc(0.5 * var(--tile-canvas-height-min));
+  --tile-one-third-min: calc(0.3333 * var(--tile-canvas-height-min));
+  --tile-two-thirds-min: calc(0.6667 * var(--tile-canvas-height-min));
 }
 
 #tripalcultivate-theme-tiles {
   display: block;
   height: var(--tile-canvas-height);
+  min-height: var(--tile-canvas-height-min);
   width: var(--tile-canvas-width);
+  min-width: var(--tile-canvas-width-min);
   margin: 0;
   padding: 0;
   position: relative;
@@ -60,6 +70,7 @@
   box-sizing: border-box;
   flex-shrink: 0;
   height: var(--tile-height);
+  min-height: var(--tile-height-min);
   position: relative;
   width: calc(50% - (0.5 * var(--tile-margin-width)));
 }
@@ -69,11 +80,13 @@
   box-sizing: border-box;
   flex-shrink: 0;
   height: var(--tile-two-thirds);
+  min-height: var(--tile-two-thirds-min);
   width: 100%;
 }
 /* Height is margin width less to account for margin of the 2/3 tile. */
 .tripalcultivate-theme-tiles-half-one-third-row {
   height: calc(var(--tile-one-third) - var(--tile-margin-width));
+  min-height: calc(var(--tile-one-third-min) - var(--tile-margin-width));
   width: 100%;
 }
 /* Second tile to the right will account for the margin. */
@@ -84,6 +97,7 @@
   flex-direction: column;
   flex-shrink: 0;
   height: var(--tile-two-thirds);
+  min-height: var(--tile-two-thirds-min);
   width: 50%;
 }
 .tripalcultivate-theme-tiles-half-two-halves-column:nth-child(2) {
