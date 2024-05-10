@@ -1,0 +1,49 @@
+/**
+ * @file
+ * Footer regions.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.site-footer {
+  position: relative; /* stack above left social bar */
+  color: var(--color--gray-20);
+  background: linear-gradient(180deg, var(--color--gray-100) 0%, var(--color--gray-95) 100%);
+  padding-left: var(--container-padding);
+  padding-right: var(--sp5);
+  border-bottom: 1rem solid var(--color--primary-30);
+
+  & .menu {
+    margin-inline-start: 0;
+    list-style: none;
+
+    & ul {
+      margin-inline-start: var(--sp);
+    }
+
+    & li {
+      margin-block-end: var(--sp0-5);
+    }
+  }
+
+  .text-content {
+    & p {
+      line-height: 1.2em;
+    }
+    & a {
+      color: var(--color--gray-5);
+      -webkit-text-decoration: underline;
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--color--primary-30);
+      }
+    }
+  }
+}
+
+@media (--nav) {
+  body:not(.is-always-mobile-nav) .site-footer {
+    border-inline-start: solid var(--content-left) var(--color--gray-90);
+  }
+}
