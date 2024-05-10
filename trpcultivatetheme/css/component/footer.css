@@ -49,12 +49,16 @@
   margin-block-end: var(--sp0-5);
 }
 
-.site-footer a {
-  color: inherit;
+.site-footer .text-content a {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  color: var(--color--gray-5);
 }
 
-.site-footer a:hover {
-  text-decoration: none;
+.site-footer .text-content a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  color: var(--color--primary-30);
 }
 
 @media (min-width: 75rem) {

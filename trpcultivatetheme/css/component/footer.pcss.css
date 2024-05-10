@@ -26,15 +26,18 @@
     }
   }
 
-  & p {
-    line-height: 1.2em;
-  }
-  & a {
-    color: inherit;
+  .text-content {
+    & p {
+      line-height: 1.2em;
+    }
+    & a {
+      color: var(--color--gray-5);
+      -webkit-text-decoration: underline;
+      text-decoration: underline;
 
-    &:hover {
-      -webkit-text-decoration: none;
-      text-decoration: none;
+      &:hover {
+        color: var(--color--primary-30);
+      }
     }
   }
 }
