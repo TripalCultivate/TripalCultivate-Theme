@@ -36,7 +36,6 @@
  */
 :root {
   --tile-canvas-height: 60vh;
-  --tile-canvas-width: 80vw;
 
   /** Original Variables */
   --tile-height: var(--tile-canvas-height);
@@ -47,19 +46,55 @@
 
   /** Minimums */
   --tile-canvas-height-min: 400px;
-  --tile-canvas-width-min: 900px;
   --tile-height-min: var(--tile-canvas-height-min);
   --tile-half-min: calc(0.5 * var(--tile-canvas-height-min));
   --tile-one-third-min: calc(0.3333 * var(--tile-canvas-height-min));
   --tile-two-thirds-min: calc(0.6667 * var(--tile-canvas-height-min));
 }
 
+/** We want to allow the tiles to grow/shrink to a point.
+  This was done by defining the min/max aspect ratio of the browser viewpoint
+  at which we are no longer happy with the tiles being stretched.
+  Then we determined the aspect ratio of the tiles canvas at these boundries.
+
+  Maximum viewpoint: 9/5 at which point the tile canvas was 5/2.1
+  Minimum viewpoint: 1.1/1 at which point the tile canvas was 4.37/3
+
+  Notice that the canvas ratio for the min viewpoint is set in the max viewpoint
+  rule, and vise versa... I do not know why this is but that is what worked.
+
+  Also, the order of the following media queries is VERY IMPORTANT!
+  */
+@media (max-aspect-ratio: 9/5) {
+  #tripalcultivate-theme-tiles {
+    aspect-ratio: 4.37/3;
+  }
+}
+@media (min-aspect-ratio: 1.1/1) {
+  #tripalcultivate-theme-tiles {
+    aspect-ratio: 5/2.1;
+  }
+}
+@media (min-aspect-ratio: 1.1/1) and (max-aspect-ratio: 9/5) {
+  :root {
+    --tile-canvas-width: 80vw;
+    --tile-canvas-width-min: 900px;
+  }
+
+  #tripalcultivate-theme-tiles {
+    width: var(--tile-canvas-width);
+    min-width: var(--tile-canvas-width-min);
+  }
+}
+
+/** Now that we've handled the main orientations, the remaining tile code is
+    mostly oblivious to orientation. The key to making this work is to only
+    set width elements as percentages of their containers. The height of
+    elements can be fixed more securely though. **/
 #tripalcultivate-theme-tiles {
   display: block;
   height: var(--tile-canvas-height);
   min-height: var(--tile-canvas-height-min);
-  width: var(--tile-canvas-width);
-  min-width: var(--tile-canvas-width-min);
   margin: 0;
   padding: 0;
   position: relative;
