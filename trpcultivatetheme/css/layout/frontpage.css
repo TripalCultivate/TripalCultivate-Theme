@@ -294,8 +294,14 @@
   top: -14px;
 }
 
-.tripalcultivate-theme-content-articles .tripalcultivate-theme-tiles-half-column {
+.tripalcultivate-theme-content-articles .tripalcultivate-theme-half-column {
   width: 48%;
+  align-self: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: var(--tile-height);
+  min-height: var(--tile-height-min);
+  position: relative;
 }
 
 .tripalcultivate-theme-content-articles article h4 {
