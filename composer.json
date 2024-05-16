@@ -1,6 +1,6 @@
 {
   "name": "tripalcultivate/trpcultivatetheme",
-  "type": "metapackage",
+  "type": "drupal-theme",
   "description": "Tripal Cultivate Theme provides default styling for the Drupal websites using the Tripal Cultivate family of packages.",
   "keywords": [
     "tripal",
@@ -26,25 +26,7 @@
     }
   ],
   "require": {
-    "php": "^8.0",
-    "drupal/core": "^10.0",
-    "tripalcultivate/trpcultivatetheme-theme": "*",
-    "tripalcultivate/trpcultivatetheme-companion": "*"
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "./trpcultivatetheme"
-    },
-    {
-      "type": "path",
-      "url": "./trpcultivatetheme_companion"
-    }
-  ],
-  "scripts": {
-    "livereload": "livereload --exclusions node_modules/ --exts 'css,js,twig,theme,apng,avif,gif,jpg,jpeg,jfif,pjpeg,pjp,png,svg,webp'"
-  },
-  "devDependencies": {
-    "livereload": "^0.9.3"
+    "php": "^8.1",
+    "drupal/core": "^10.0"
   }
 }
