@@ -275,6 +275,10 @@
 }
 
 /* Main Content */
+.tripalcultivate-theme-content-main-content-section {
+  position: relative;
+}
+
 .tripalcultivate-theme-horizontal-rule {
   border-top: 15px solid var(--color--primary-50);
   margin: 40px 0;
@@ -299,8 +303,7 @@
   align-self: flex-start;
   box-sizing: border-box;
   flex-shrink: 0;
-  height: var(--tile-height);
-  min-height: var(--tile-height-min);
+  height: auto;
   position: relative;
 }
 
