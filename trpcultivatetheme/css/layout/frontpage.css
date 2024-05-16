@@ -345,20 +345,20 @@
   text-align: center;
 }
 
-#tripalcultivate-theme-funders>div {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0 0 0;
-}
-
 #tripalcultivate-theme-funders h4 {
   color: #C0C0C0;
   text-align: center;
   margin-bottom: 10px;
 }
 
-#tripalcultivate-theme-funders>div div {
-  flex: 1 0 auto;
+.region--trpcultivatetheme-contents-funders {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 0 0;
+}
+.region--trpcultivatetheme-contents-funders div.block {
+  flex-grow: 1;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
 }
