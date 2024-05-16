@@ -345,7 +345,7 @@
   text-align: center;
 }
 
-#tripalcultivate-theme-funders > div {
+#tripalcultivate-theme-funders>div {
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0 0 0;
@@ -357,20 +357,30 @@
   margin-bottom: 10px;
 }
 
-#tripalcultivate-theme-funders > div div {
+#tripalcultivate-theme-funders>div div {
   flex: 1 0 auto;
-  margin: var(--tile-margin-width);
+  margin: 0;
   padding: 0;
 }
 
 .tripalcultivate-theme-content-funder {
-  height: 125px;
+  height: 100px;
+  max-width: 225px;
   display: inline-block;
   width: fit-content;
+  margin: var(--tile-margin-width);
 }
 
 .tripalcultivate-theme-content-funder img {
-  width: 90%;
+  width: 100%;
   height: 100%;
-  object-fit:contain;
+  object-fit: contain;
+}
+
+/** Specific funder overrides for unruly logos **/
+#block-trpcultivatetheme-fundercanadiangraincommission .tripalcultivate-theme-content-funder {
+  max-width: 400px;
+}
+#block-trpcultivatetheme-funderuofs .tripalcultivate-theme-content-funder {
+  max-width: 300px;
 }
