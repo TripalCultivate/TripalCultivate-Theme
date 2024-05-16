@@ -65,23 +65,46 @@
 
   Also, the order of the following media queries is VERY IMPORTANT!
   */
+/* Viewport is longer then it is wide (i.e. phone) */
 @media (max-aspect-ratio: 9/5) {
+/*   .main-content {
+    background-color: yellow;
+  } */
   #tripalcultivate-theme-tiles {
     aspect-ratio: 4.37/3;
   }
 }
+/* Viewport is wider then it is long */
 @media (min-aspect-ratio: 1.1/1) {
+/*   .main-content {
+    background-color: yellowgreen;
+  } */
+
   #tripalcultivate-theme-tiles {
     aspect-ratio: 5/2.1;
+    margin: 0 15vh 0;
   }
 }
+/* Goldilocks ratio that we felt was ideal for our tiles */
 @media (min-aspect-ratio: 1.1/1) and (max-aspect-ratio: 9/5) {
   :root {
     --tile-canvas-width: 80vw;
     --tile-canvas-width-min: 900px;
   }
+/*   .main-content {
+    background-color: green;
+  } */
 
   #tripalcultivate-theme-tiles {
+    width: var(--tile-canvas-width);
+    min-width: var(--tile-canvas-width-min);
+    margin: 0;
+  }
+  .tripalcultivate-theme-content-main-content-section {
+    width: var(--tile-canvas-width);
+    min-width: var(--tile-canvas-width-min);
+  }
+  #tripalcultivate-theme-funders {
     width: var(--tile-canvas-width);
     min-width: var(--tile-canvas-width-min);
   }
@@ -95,7 +118,6 @@
   display: block;
   height: var(--tile-canvas-height);
   min-height: var(--tile-canvas-height-min);
-  margin: 0;
   padding: 0;
   position: relative;
 }
