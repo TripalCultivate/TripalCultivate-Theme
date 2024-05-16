@@ -6,6 +6,21 @@ This theme is intended to provide a base for developing custom themes for projec
 
 <br clear="right"/>
 
+## Installation
+
+First install the theme via composer:
+```
+composer require tripalcultivate/trpcultivatetheme
+```
+
+Then, symlink the module portion of the theme into the modules directory:
+```
+cd web/modules/contrib
+ln -s [pathToDrupalRoot]/themes/TripalCultivate-Theme/trpcultivatetheme_companion
+```
+
+Now you can enable first the module and then the theme.
+
 ## Customizing this theme
 
 You can set the primary base colour using the following drush command where you substitute `#f54278` for whatever hex code you would like to use.
@@ -37,7 +52,7 @@ This docker image/container will have a fully functioning Tripal 4 site based on
 
 The dockerfile sets up the development environment with twig debugging turned on. This adds template suggestions in HTML comments into each page and **refreshes twig template caches as it detects changes in the files**. You do still need to use `drush cr` to see CSS and template changes but it is much more reliable with this setting in place.
 
-### Olivero as a Base Theme
+## Olivero as a Base Theme
 
 This theme uses the core Olivero theme as a base theme. As of 2024Feb this is not technically recommended as the markup of Olivero is not fixed. You can see the current status / recommendation on using Oliverio as a subtheme in [Drupal Issue #3190946 - [META] Subtheming Olivero](https://www.drupal.org/project/drupal/issues/3190946).
 
