@@ -67,22 +67,41 @@
   */
 /* Viewport is longer then it is wide (i.e. phone) */
 @media (max-aspect-ratio: 9/5) {
-/*   .main-content {
-    background-color: yellow;
-  } */
+
   #tripalcultivate-theme-tiles {
     aspect-ratio: 4.37/3;
+  }
+  .tripalcultivate-theme-content-main-content-section {
+    width: 1094.68px;
+  }
+  #tripalcultivate-theme-funders {
+    width: 1094.68px;
+  }
+  html {
+    background-color: white;
+    width: 1315px;
   }
 }
 /* Viewport is wider then it is long */
 @media (min-aspect-ratio: 1.1/1) {
-/*   .main-content {
-    background-color: yellowgreen;
-  } */
+
+  :root {
+    --tile-canvas-height: 600px;
+  }
 
   #tripalcultivate-theme-tiles {
     aspect-ratio: 5/2.1;
-    margin: 0 15vh 0;
+    margin-left: 150px;
+  }
+  .tripalcultivate-theme-tiles-banner-tall div,
+  .tripalcultivate-theme-tiles-banner-wide div {
+    font-size: var(--font-size-base) !important;
+  }
+  .tripalcultivate-theme-content-main-content-section {
+    width: 1728.57px;
+  }
+  #tripalcultivate-theme-funders {
+    width: 1728.57px;
   }
 }
 /* Goldilocks ratio that we felt was ideal for our tiles */
@@ -91,9 +110,6 @@
     --tile-canvas-width: 80vw;
     --tile-canvas-width-min: 900px;
   }
-/*   .main-content {
-    background-color: green;
-  } */
 
   #tripalcultivate-theme-tiles {
     width: var(--tile-canvas-width);
@@ -282,6 +298,10 @@
   margin: 0;
   position: absolute;
 }
+/*
+.tripalcultivate-theme-tiles-half-standard * {
+  height: 100%;
+}*/
 
 /* Set the height of the container element inserted by base theme */
 .tripalcultivate-theme-tiles-half-standard div > div {
