@@ -124,6 +124,9 @@
     width: var(--tile-canvas-width);
     min-width: var(--tile-canvas-width-min);
   }
+  html {
+    width: 100%;
+  }
 }
 
 /** Now that we've handled the main orientations, the remaining tile code is
