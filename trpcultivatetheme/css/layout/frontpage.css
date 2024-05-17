@@ -1,8 +1,8 @@
 .main-content__container {
   font-size: 1.5em;
   line-height: 2em;
-  margin-bottom: 100px;
-  padding: 100px 100px;
+  padding: 100px 100px var(--sp5);
+  margin-bottom: 0;
 }
 .main-content__container ul {
   list-style: square outside none;
@@ -322,6 +322,7 @@
 /* Main Content */
 .tripalcultivate-theme-content-main-content-section {
   position: relative;
+  margin-top: var(--sp5);
 }
 
 .tripalcultivate-theme-horizontal-rule {
