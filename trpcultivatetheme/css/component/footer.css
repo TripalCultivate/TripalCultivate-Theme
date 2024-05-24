@@ -29,7 +29,15 @@
   background: linear-gradient(180deg, var(--color--gray-100) 0%, var(--color--gray-95) 100%);
   padding-left: var(--container-padding);
   padding-right: var(--sp5);
-  border-bottom: 1rem solid var(--color--primary-30);
+}
+
+/* Horizontal line in the footer section */
+.tripalcultivate-theme-footer-border {
+  background-color: var(--color--primary-30);
+  height: 1rem;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .site-footer .menu {

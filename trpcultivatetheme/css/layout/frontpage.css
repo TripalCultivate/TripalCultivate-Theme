@@ -71,11 +71,9 @@
   #tripalcultivate-theme-tiles {
     aspect-ratio: 4.37/3;
   }
-  .tripalcultivate-theme-content-main-content-section {
-    width: 1094.68px;
-  }
+  .tripalcultivate-theme-content-main-content-section,
   #tripalcultivate-theme-funders {
-    width: 1094.68px;
+    width: calc((4.37 / 3) * var(--tile-canvas-height));
   }
   html {
     background-color: white;
@@ -91,21 +89,20 @@
 
   #tripalcultivate-theme-tiles {
     aspect-ratio: 5/2.1;
-    margin-left: 150px;
+    margin-left: 0;
   }
   .tripalcultivate-theme-tiles-banner-tall div,
   .tripalcultivate-theme-tiles-banner-wide div {
     font-size: var(--font-size-base) !important;
   }
-  .tripalcultivate-theme-content-main-content-section {
-    width: 1728.57px;
-  }
+  .tripalcultivate-theme-content-main-content-section,
   #tripalcultivate-theme-funders {
-    width: 1728.57px;
+    width: calc((5 / 2.1) * var(--tile-canvas-height));
   }
 }
 /* Goldilocks ratio that we felt was ideal for our tiles */
 @media (min-aspect-ratio: 1.1/1) and (max-aspect-ratio: 9/5) {
+  
   :root {
     --tile-canvas-width: 80vw;
     --tile-canvas-width-min: 900px;
