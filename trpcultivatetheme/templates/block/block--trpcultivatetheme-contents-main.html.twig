@@ -19,8 +19,8 @@
  *     Content title or label
  *     Display title configuration must be checked in configure block, otherwise
  *     this will just be a horizontal line.
- *   </h3> 
- *   
+ *   </h3>
+ *
  *   <div>
  *     Theme content:
  *     <div>
@@ -31,7 +31,7 @@
  *           <p>Summary text</p>
  *         </article>
  *       </div>
- *        
+ *
  *       <div>
  *         Article/content right.
  *         <article>
@@ -49,23 +49,23 @@
 #}
 
 {% block content %}
-  <div class="tripalcultivate-theme-content-main-content-section">    
+  <div class="tripalcultivate-theme-content-main-content-section">
     <hr class="tripalcultivate-theme-horizontal-rule" />
     <h3 class="tripalcultivate-theme-content-header">
       {{ label }}
     </h3>
-    
+
     <div>
       {# If content has left and right article/text, theme content, otherwise load content. #}
       {% if content.trpcultivatetheme_content_title1 and content.trpcultivatetheme_content_title1 %}
         <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-content-articles">
-          <div class="tripalcultivate-theme-tiles-half-column">
-            <article>  
+          <div class="tripalcultivate-theme-half-column">
+            <article>
               <h4>{{ content.trpcultivatetheme_content_title1 }}</h4>
               <p>{{ content.trpcultivatetheme_content_text1 }}</p>
-            </article> 
+            </article>
           </div>
-          <div class="tripalcultivate-theme-tiles-half-column">
+          <div class="tripalcultivate-theme-half-column">
             <article>
               <h4>{{ content.trpcultivatetheme_content_title2 }}</h4>
               <p>{{ content.trpcultivatetheme_content_text2 }}</p>
