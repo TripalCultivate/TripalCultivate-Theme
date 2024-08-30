@@ -3,10 +3,15 @@
 }
 .tripal_entity table {
   border-spacing: 0;
-  font-size: 0.857em;
+  font-size: 0.87em;
+  line-height: 1.5em;
   border-collapse: collapse;
-  width: 80%;
+  width: 100%;
   margin-bottom: var(--sp2);
+}
+.tripal_entity table.small-font-table {
+  font-size: 0.75em;
+  line-height: 1em;
 }
 .tripal_entity th {
   text-align: left;
@@ -15,9 +20,21 @@
   border-bottom: 1px solid var(--color--primary-40);
   width: 200px;
   width: calc(var(--sp10) * 2);
-  padding: 2px 15px;
+  padding: 2px 30px;
 }
 .tripal_entity td {
   border-bottom: 1px solid whitesmoke;
   padding: 2px 30px;
+}
+.tripal_entity table.data td {
+  border: 1px solid whitesmoke;
+}
+.tripal_entity th.narrow-column {
+  width: 100px;
+}
+.tripal_entity th.mid-column {
+  width: 200px;
+}
+.tripal_entity th.wide-column {
+  width: 400px;
 }
