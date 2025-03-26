@@ -1,0 +1,99 @@
+/**
+ * Component: Grant Card
+ * Tripal Content: Research Grant
+ * View Mode: Embedded in Child
+ * Paired with template tripal-entity--research-grant--embedded-in-child.html.twig
+ */
+.embedded-grant {
+  color: var(--color-text-primary-loud);
+  background-color: var(--color--primary-80);
+  border: 1px solid var(--border-color-primary-80);
+  padding: var(--sp2);
+  line-height: 24px;
+}
+
+/** Remove container highlighting for this specific entity reference field */
+.field--type-entity-reference>.field__item:has(> .embedded-grant),
+.field--type-entity-reference>.field__items>.field__item:has(> .embedded-grant) {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+/** Card Layout */
+.embedded-grant {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.embedded-grant .grant-card {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.embedded-grant .grant-card.left {
+  text-align: center;
+  width: 19%;
+}
+
+.embedded-grant .grant-card.right {
+  width: 79%;
+  padding-left: 10px;
+}
+
+/** Field specific modifications */
+.embedded-grant .field--name-title {
+  font-weight: bolder;
+  font-size: 1em;
+  margin-block-end: 0;
+  margin-bottom: var(--sp0-5);
+}
+
+.embedded-grant a {
+  text-decoration: none;
+}
+
+.embedded-grant .field--name-grant-custodian {
+  font-size: 0.8em;
+  line-height: 0.8em;
+}
+
+.embedded-grant .field--name-grant-org {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  font-style: italic;
+}
+
+.embedded-grant .field--name-grant-funding-range {
+  text-align: right;
+  position: absolute;
+  bottom: var(--sp2);
+  right: var(--sp2);
+}
+
+/** Make contact lists into comma separated ones. */
+.embedded-grant .field--type-chado-contact-by-role-type-default {
+  display: inline;
+  list-style: none;
+}
+
+.embedded-grant .field--type-chado-contact-by-role-type-default ul {
+  margin-inline-start: 0;
+}
+
+.embedded-grant .field--type-chado-contact-by-role-type-default li {
+  display: inline;
+}
+
+.embedded-grant .field--type-chado-contact-by-role-type-default li:before {
+  content: ", ";
+}
+
+.embedded-grant .field--type-chado-contact-by-role-type-default li:first-child:before {
+  content: "";
+}
+
+.embedded-grant .field--type-chado-contact-by-role-type-default li:last-child:before {
+  content: " and ";
+}

@@ -14,6 +14,7 @@ global:
       css/component/footer.css: {}
       css/component/field.css: {}
       css/component/form.css: {}
+      css/component/grant-card.css: {}
       css/component/header.css: {}
       css/component/menu.css: {}
       css/component/messages.css: {}
@@ -23,6 +24,7 @@ global:
       css/component/tabs.css: {}
       css/component/buttons.css: {}
       css/component/slider.css: {}
+      css/component/tripal_content.css: {}
     layout:
       css/layout/layout.css: {}
       css/layout/layout-footer.css: {}
