@@ -12,6 +12,7 @@
   padding: var(--sp2);
   line-height: 24px;
   hyphens: none;
+  position: relative;
 }
 
 .embedded-grant-activity {
@@ -20,6 +21,7 @@
   padding: 0;
   line-height: 24px;
   hyphens: none;
+  position: relative;
 }
 
 /** Remove link underlines */
