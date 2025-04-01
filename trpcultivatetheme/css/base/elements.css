@@ -1,0 +1,4 @@
+:root {
+  --color--primary-70: hsl(var(--color--primary-hue), var(--color--primary-saturation), calc(1% * (var(--color--primary-lightness) + (0.75 * (100 - var(--color--primary-lightness))))));
+  --border-color-primary-80: hsl(var(--color--primary-hue), var(--color--primary-saturation), calc(1% * (var(--color--primary-lightness) + (0.80 * (100 - var(--color--primary-lightness))))));
+}
