@@ -1,7 +1,7 @@
-ARG drupalversion='10.2.x-dev'
-ARG phpversion='8.3'
-ARG pgsqlversion='13'
-FROM knowpulse/tripalcultivate:base-notheme-drupal${drupalversion}-php${phpversion}-pgsql${pgsqlversion}
+ARG drupalversion='11.x-dev'
+ARG phpversion='8.5'
+ARG postgresqlversion='18'
+FROM knowpulse/tripalcultivate-base:notheme-drupal${drupalversion}-php${phpversion}-pgsql${postgresqlversion}
 
 ## Setup this container to show theme debugging settings
 ## such as the template suggestions in the html
