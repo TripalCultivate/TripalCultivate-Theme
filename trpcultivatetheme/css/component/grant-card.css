@@ -127,6 +127,6 @@
   font-style: italic;
   font-size: 0.6em;
   line-height: var(--sp1);
-  padding-top: 30px;
+  padding: 30px;
   background-color: white;
 }
