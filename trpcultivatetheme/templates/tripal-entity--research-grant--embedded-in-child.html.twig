@@ -20,7 +20,7 @@
     {{ content.field_grant_logo }}
   </div>
   <div class="grant-card right">
-    {{ content|without(content.field_grant_logo) }}
+    {{ content|without(content.field_grant_logo, content.field_funding_logos) }}
   </div>
 </div>
 {{ content.field_funding_logos }}
