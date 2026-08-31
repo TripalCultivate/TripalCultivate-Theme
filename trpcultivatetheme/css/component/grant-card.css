@@ -122,3 +122,10 @@
 .embedded-grant .field--type-chado-contact-by-role-type-default li:last-child:before {
   content: " and ";
 }
+
+.field--name-field-funding-logos {
+  font-style: italic;
+  font-size: 0.6em;
+  line-height: var(--sp1);
+  margin-top: 30px;
+}
