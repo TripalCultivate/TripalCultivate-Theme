@@ -56,7 +56,7 @@
     </h3>
 
     <div>
-      {# If content has left and right article/text, theme content, otherwise load content. #}
+      {# If content has left and right article/text, theme content. #}
       {% if content.trpcultivatetheme_content_title1 and content.trpcultivatetheme_content_text1 %}
         <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-content-articles">
           <div class="tripalcultivate-theme-half-column">
@@ -72,8 +72,9 @@
             </article>
           </div>
         </div>
+      {# If content is hexagon tiles, otherwise load content. #}
       {% elseif content.trpcultivatetheme_menu_item %}
-        {{ content.trpcultivatetheme_menu_item.themed_menu }}
+        {{ content.trpcultivatetheme_menu_item.hex_tiles }}
       {% else %}
         {{ content }}
       {% endif %}

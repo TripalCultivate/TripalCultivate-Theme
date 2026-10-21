@@ -188,7 +188,9 @@ function trpcultivatetheme_companion_install() {
             'display' => 'themed_menu_items_formatter',
             'form' => 'link_default'
           ],
-          'settings' => []
+          'settings' => [
+            'placeholder_title' => 'ie. <i class="fa-regular fa-circle-right"></i> Tool name/title',
+          ]
         ]
       ],
     ],
