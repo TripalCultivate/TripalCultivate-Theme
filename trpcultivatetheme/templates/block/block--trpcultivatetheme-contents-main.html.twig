@@ -49,35 +49,41 @@
 #}
 
 {% block content %}
-  <div class="tripalcultivate-theme-content-main-content-section">
-    <hr class="tripalcultivate-theme-horizontal-rule" />
-    <h3 class="tripalcultivate-theme-content-header">
-      {{ label }}
-    </h3>
+  {% if is_front %}
+    <div class="tripalcultivate-theme-content-main-content-section">
+      <hr class="tripalcultivate-theme-horizontal-rule" />
+      <h3 class="tripalcultivate-theme-content-header">
+        {{ label }}
+      </h3>
 
-    <div>
-      {# If content has left and right article/text, theme content. #}
-      {% if content.trpcultivatetheme_content_title1 and content.trpcultivatetheme_content_text1 %}
-        <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-content-articles">
-          <div class="tripalcultivate-theme-half-column">
-            <article>
-              <h4>{{ content.trpcultivatetheme_content_title1 }}</h4>
-              <p>{{ content.trpcultivatetheme_content_text1 }}</p>
-            </article>
+      <div>
+        {# If content has left and right article/text, theme content. #}
+        {% if content.trpcultivatetheme_content_title1 and content.trpcultivatetheme_content_text1 %}
+          <div class="tripalcultivate-theme-double-columns-wide tripalcultivate-theme-content-articles">
+            <div class="tripalcultivate-theme-half-column">
+              <article>
+                <h4>{{ content.trpcultivatetheme_content_title1 }}</h4>
+                <p>{{ content.trpcultivatetheme_content_text1 }}</p>
+              </article>
+            </div>
+            <div class="tripalcultivate-theme-half-column">
+              <article>
+                <h4>{{ content.trpcultivatetheme_content_title2 }}</h4>
+                <p>{{ content.trpcultivatetheme_content_text2 }}</p>
+              </article>
+            </div>
           </div>
-          <div class="tripalcultivate-theme-half-column">
-            <article>
-              <h4>{{ content.trpcultivatetheme_content_title2 }}</h4>
-              <p>{{ content.trpcultivatetheme_content_text2 }}</p>
-            </article>
-          </div>
-        </div>
-      {# If content is hexagon tiles, otherwise load content. #}
-      {% elseif content.trpcultivatetheme_menu_item %}
-        {{ content.trpcultivatetheme_menu_item.hex_tiles }}
-      {% else %}
-        {{ content }}
-      {% endif %}
+        {# If content is hexagon tiles, otherwise load content. #}
+        {% elseif content.trpcultivatetheme_menu_item %}
+          {{ content.trpcultivatetheme_menu_item.hex_tiles }}
+        {% else %}
+          {{ content }}
+        {% endif %}
+      </div>
     </div>
-  </div>
+  {% else %}
+    {% if content.trpcultivatetheme_menu_item %}
+      {{ content.trpcultivatetheme_menu_item.hex_tiles }}
+    {% endif %}
+  {% endif %}
 {% endblock %}
