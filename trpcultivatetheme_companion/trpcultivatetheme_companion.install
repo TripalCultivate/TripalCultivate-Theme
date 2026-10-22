@@ -171,7 +171,17 @@ function trpcultivatetheme_companion_install() {
         ]
       ],
     ],
+  ];
 
+  createBlockContent($content_schema);
+}
+
+/**
+ * Adds themed menu items content block.
+ */
+function trpcultivatetheme_companion_update_10001() {
+
+  $content_schema = [
     // THEMED MENU ITEMS:
     'trpcultivatetheme_menu_block' => [
       'block' => [
@@ -195,6 +205,18 @@ function trpcultivatetheme_companion_install() {
       ],
     ],
   ];
+
+  createBlockContent($content_schema);
+}
+
+/**
+ * Helper function:
+ * Create block content type and fields used by the tile layout in the theme companion.
+ *
+ * @param array $content_schema
+ *  An array of content block definition.
+ */
+function createBlockContent(array $content_schema) {
   
   // Create content block.
   foreach ($content_schema as $bundle => $schema) {
