@@ -62,7 +62,7 @@ class ThemedMenuItemsFormatter extends ChadoFormatterBase {
 
     // Wrap all tiles in this container element.
     return [
-      'hex_tiles' => [
+      0 => [
         '#type' => 'container',
         '#attributes' => [
           'id' => 'trpcultivatetheme-themed-menu',

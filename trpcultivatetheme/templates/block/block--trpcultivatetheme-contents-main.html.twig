@@ -49,7 +49,7 @@
 #}
 
 {% block content %}
-  {% if is_front == 1 %}
+  {% if is_front %}
     <div class="tripalcultivate-theme-content-main-content-section">
       <hr class="tripalcultivate-theme-horizontal-rule" />
       <h3 class="tripalcultivate-theme-content-header">
@@ -75,15 +75,11 @@
           </div>
         {# If content is hexagon tiles, otherwise load content. #}
         {% elseif content.trpcultivatetheme_menu_item %}
-          {{ content.trpcultivatetheme_menu_item.hex_tiles }}
+          {{ content.trpcultivatetheme_menu_item }}
         {% else %}
           {{ content }}
         {% endif %}
       </div>
     </div>
-  {% else %}
-    {% if content.trpcultivatetheme_menu_item %}
-      {{ content.trpcultivatetheme_menu_item.hex_tiles }}
-    {% endif %}
   {% endif %}
 {% endblock %}

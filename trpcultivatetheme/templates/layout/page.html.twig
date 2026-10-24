@@ -116,11 +116,6 @@
               <main role="main">
                 {{ page.content_above }}
                 {{ page.content }}
-                {% for key in page.content|keys %}
-                  {% if key matches '/trpcultivatetheme_(?!content)/' %}
-                    {{ page.trpcultivatetheme_contents_main }}
-                  {% endif %}
-                {% endfor %}
               </main>
             {% endif %}
             {{ page.content_below }}
