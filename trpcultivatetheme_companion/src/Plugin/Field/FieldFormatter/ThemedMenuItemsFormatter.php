@@ -34,9 +34,10 @@ class ThemedMenuItemsFormatter extends ChadoFormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     
-    $menu_items = [];
+    // Default icon (->) if none is provided.
     $default_icon = '<i class="fa-regular fa-circle-right"></i>';
 
+    $menu_items = [];
     foreach ($items as $delta => $item) {
       $title = $item->title;
 
@@ -45,17 +46,23 @@ class ThemedMenuItemsFormatter extends ChadoFormatterBase {
       // the title text and there is always an icon if not provided.
       $menu_title = trim(strip_tags($title));
       $menu_icon = str_replace($menu_title, '', $title) ?: $default_icon;
-    
+  
       $menu_items[$delta] = [
-        '#type' => 'link',
-        '#url' => Url::fromUri($item->uri),
-        '#prefix' => '<div class="trpcultivatetheme-hex-tile">',
-        '#suffix' => '</div>',
+        '#type' => 'container',
         '#attributes' => [
-          'title' => $menu_title,
+          'class' => [
+            'trpcultivatetheme-hex-tile',
+          ],
         ],
-        '#title' => [
-          '#markup' => $menu_icon . strtoupper($menu_title),
+        'link' => [
+          '#type' => 'link',
+          '#url' => Url::fromUri($item->uri),
+          '#title' => [
+            '#markup' => $menu_icon . strtoupper($menu_title)
+          ],
+          '#attributes' => [
+            'title' => $menu_title,
+          ],
         ],
       ];
     }
