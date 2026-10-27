@@ -162,10 +162,6 @@ function trpcultivatetheme_preprocess_block(&$variables) {
       $variables[ $content_region_placement ] = $tile_raw_content;
       $variables['content_region'] = $content_region_placement; 
       
-      // Variable to identify a frontpage from page.
-      $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
-      $variables['#cache']['contexts'][] = 'url.path.is_front';
-
       // @debug dpm($variables);
     }    
   }
