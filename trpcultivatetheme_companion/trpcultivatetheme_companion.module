@@ -27,6 +27,25 @@ function trpcultivatetheme_companion_form_alter(&$form, \Drupal\Core\Form\FormSt
     $form['#attached']['library'][] = 'trpcultivatetheme_companion/trpcultivatetheme-color-picker';
     $form['trpcultivatetheme_tile_bgcolor']['#attributes']['style'] = 'width: 200px';
   } 
+
+  // Provide helpful field description to themed menu items create/edit form.
+  $themed_menu_block = 'block_content_trpcultivatetheme_menu_block';
+
+  if ($form_id == $themed_menu_block . '_form' || $form_id == $themed_menu_block . '_edit_form') {
+    $bundle = 'trpcultivatetheme_menu_item';
+    $item_count = count($form[$bundle]['widget']);
+
+    for ($delta = 0; $delta < $item_count; $delta++) {
+      if (isset($form[$bundle]['widget'][$delta])) {
+        $form[$bundle]['widget'][$delta]['uri']['#description'] = 'Start typing the title of a piece of content to select it. 
+          You can also enter an internal path such as /node/add or an external URL such as https://example.com. 
+          Enter &lt;front&gt; to link to the front page.';
+
+        $form[$bundle]['widget'][$delta]['title']['#description'] = 'Use fontawesome.com to obtain suitable icon, 
+          then paste the icon markup code snippet followed by the menu item title text.';
+      }
+    }
+  }
 }
 
 /**

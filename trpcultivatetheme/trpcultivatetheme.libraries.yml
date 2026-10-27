@@ -35,3 +35,10 @@ frontpage:
   css:
     theme:
       css/layout/frontpage.css: {}
+
+# Library used by themed menu items.
+themed-menu:
+  version: v1.x
+  css:
+    theme:
+      css/theme/themed-menu.css: {}

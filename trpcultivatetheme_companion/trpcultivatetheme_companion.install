@@ -172,6 +172,51 @@ function trpcultivatetheme_companion_install() {
       ],
     ],
   ];
+
+  createBlockContent($content_schema);
+}
+
+/**
+ * Adds themed menu items content block.
+ */
+function trpcultivatetheme_companion_update_10001() {
+
+  $content_schema = [
+    // THEMED MENU ITEMS:
+    'trpcultivatetheme_menu_block' => [
+      'block' => [
+        'label' => 'Tripal Cultivate Themed Menu Content Block',
+        'description' => 'This block content type is used to insert a themed menu item'
+      ],
+      'fieldset' => [
+        'trpcultivatetheme_menu_item' => [
+          'label' => 'Menu Item',
+          'weight' => 1,
+          'cardinality' => -1,
+          'type' => [
+            'storage' => 'link',
+            'display' => 'themed_menu_items_formatter',
+            'form' => 'link_default'
+          ],
+          'settings' => [
+            'placeholder_title' => 'ie. <i class="fa-regular fa-circle-right"></i> Tool name/title',
+          ]
+        ]
+      ],
+    ],
+  ];
+
+  createBlockContent($content_schema);
+}
+
+/**
+ * Helper function:
+ * Create block content type and fields used by the tile layout in the theme companion.
+ *
+ * @param array $content_schema
+ *  An array of content block definition.
+ */
+function createBlockContent(array $content_schema) {
   
   // Create content block.
   foreach ($content_schema as $bundle => $schema) {
@@ -210,7 +255,8 @@ function trpcultivatetheme_companion_install() {
           'field_name' => $field_name,
           'entity_type' => 'block_content',
           'type' => $field_prop['type']['storage'],
-          'settings' => $field_prop['settings']
+          'settings' => $field_prop['settings'],
+          'cardinality' => $field_prop['cardinality'] ?? 1,
         ])
           ->save();
 
